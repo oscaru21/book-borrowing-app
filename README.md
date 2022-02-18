@@ -1,11 +1,11 @@
 # BookBorrowing
 
 ## Relational Diagram
-![](./img/2022-02-18-11-19-02.png)
+[Read Only](https://tinyurl.com/mu77fhk4)
 
 
 ## Class Diagram
-![](./img/2022-02-18-12-43-54.png)
+[Read Only](https://tinyurl.com/3r9xf4ja)
 
 
 ## Trello Board
