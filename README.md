@@ -27,3 +27,6 @@ https://trello.com/b/avKyN8mS/bookborrowing
 - JDBC URL: jdbc:h2:mem:testdb
 - Username: sa
 - Password:
+
+## Swagger Editor
+- https://editor.swagger.io/
