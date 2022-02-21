@@ -15,13 +15,15 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-public class Person {
+public class User {
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
+	
 	private String name;
-	private String email;
-	private String password;
-	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER, mappedBy = "person")
+
+	private String nbooks;
+	
+	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER, mappedBy = "user")
 	private List<Loan> loans;
 }

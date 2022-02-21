@@ -42,7 +42,7 @@ public class Loan {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_id_person", nullable = false)
-	private Person person;
+	private User user;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_id_book", nullable = false)

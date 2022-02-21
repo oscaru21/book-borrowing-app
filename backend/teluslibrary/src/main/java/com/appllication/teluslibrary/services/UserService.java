@@ -1,5 +1,5 @@
 package com.appllication.teluslibrary.services;
 
-public class PersonService {
+public class UserService {
 
 }

@@ -1,5 +1,5 @@
 package com.appllication.teluslibrary.controllers;
 
-public class PersonController {
+public class UserController {
 
 }
