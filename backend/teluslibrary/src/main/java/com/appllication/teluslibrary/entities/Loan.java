@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -23,16 +24,26 @@ import lombok.Setter;
 @Table(name = "loan")
 @JsonIgnoreProperties({ "book", "person" })
 public class Loan {
+	@Id
+	private Integer id;
+	
 	private Date startDate;
+	
 	private Date endDate;
+	
+	private Float penalization;
+	
 	@Enumerated(EnumType.STRING)
 	private LoanType type;
-	private Float penalization;
+	
+	
 	@Enumerated(EnumType.STRING)
 	private LoanStatus status;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_id_person", nullable = false)
 	private Person person;
+	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_id_book", nullable = false)
 	private Book book;
