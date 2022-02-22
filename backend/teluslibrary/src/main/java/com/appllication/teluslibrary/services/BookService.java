@@ -16,7 +16,7 @@ public class BookService {
 	public List<Book> getBooks(){
 		return bookRepository.findAll();
 	}
-	public Book getBook(Integer id) {
+	public Book getBook(Long id) {
 		return bookRepository.findById(id).get();
 	}
 	public Book createBook(Book book) {
@@ -25,7 +25,7 @@ public class BookService {
 	public Book updateBook(Book book) {
 		return bookRepository.save(book);
 	}
-	public void deleteBook(Integer id) {
+	public void deleteBook(Long id) {
 		bookRepository.deleteById(id);
 	}
 }

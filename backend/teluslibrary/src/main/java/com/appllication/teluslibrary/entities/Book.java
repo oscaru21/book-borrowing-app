@@ -11,7 +11,7 @@ import lombok.Data;
 public class Book {
 	@Id
 	@GeneratedValue
-	private Integer id;
+	private Long id;
 	private String title;
 	private Integer stock;
 }

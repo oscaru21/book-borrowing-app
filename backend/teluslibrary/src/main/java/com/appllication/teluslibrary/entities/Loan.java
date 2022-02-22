@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -25,7 +27,8 @@ import lombok.Setter;
 @JsonIgnoreProperties({ "book", "person" })
 public class Loan {
 	@Id
-	private Integer id;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	
 	private Date startDate;
 	
@@ -50,6 +53,6 @@ public class Loan {
 
 	public Float calculatePenalization() {
 		int days = endDate.getDay() - startDate.getDay();
-		return days * this.book.getPenaltyCost();
+		return days * 0.2F;
 	}
 }
