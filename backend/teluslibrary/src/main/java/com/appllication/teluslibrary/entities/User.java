@@ -1,5 +1,6 @@
 package com.appllication.teluslibrary.entities;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -14,8 +15,6 @@ import javax.persistence.OneToMany;
 import com.appllication.teluslibrary.util.UserRole;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Data
 @Entity
@@ -27,13 +26,14 @@ public class User {
 	private String firstName;
 	
 	private String lastName;
-
-	private Long nbooks;
 	
 	private String email;
+	
 	@Enumerated(EnumType.STRING)
 	private UserRole role;
 	
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER, mappedBy = "user")
-	private Set<Loan> loans;
+	private Set<Loan> loans = new HashSet<>();
+	
+	private Long nbooks = (long) loans.size();
 }

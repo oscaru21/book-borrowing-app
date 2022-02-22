@@ -17,11 +17,9 @@ import com.appllication.teluslibrary.util.LoanStatus;
 import com.appllication.teluslibrary.util.LoanType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 @Entity
 @Table(name = "loan")
 @JsonIgnoreProperties({ "book", "person" })
@@ -33,8 +31,6 @@ public class Loan {
 	private Date startDate;
 	
 	private Date endDate;
-	
-	private Float penalization;
 	
 	@Enumerated(EnumType.STRING)
 	private LoanType type;
@@ -51,6 +47,8 @@ public class Loan {
 	@JoinColumn(name = "fk_id_book", nullable = false)
 	private Book book;
 
+	private Float penalization;
+	
 	public Float calculatePenalization() {
 		int days = endDate.getDay() - startDate.getDay();
 		return days * 0.2F;
