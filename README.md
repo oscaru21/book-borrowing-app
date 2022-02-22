@@ -1,14 +1,14 @@
 # BookBorrowing
 
 ## Relational Diagram
-![](./img/2022-02-21-14-18-50.png)
+![](./img/2022-02-22-10-53-38.png)
 
 
 ## Class Diagram
 ![](./img/2022-02-21-14-20-42.png)
 
 ## Use Cases Diagram
-![](./img/2022-02-21-14-16-03.png)
+![](./img/2022-02-22-10-51-48.png)
 
 ## Trello Board
 https://trello.com/b/avKyN8mS/bookborrowing
@@ -32,3 +32,6 @@ https://trello.com/b/avKyN8mS/bookborrowing
 
 ## Swagger Editor
 - https://editor.swagger.io/
+
+## Swagger documentation
+- https://app.swaggerhub.com/apis-docs/oscaru21/BookBorrowingAPI/1.0
