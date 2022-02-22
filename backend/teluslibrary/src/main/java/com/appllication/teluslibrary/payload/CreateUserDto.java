@@ -11,6 +11,4 @@ public class CreateUserDto {
 	private String lastName;
 
 	private String email;
-
-	private UserRole role;
 }

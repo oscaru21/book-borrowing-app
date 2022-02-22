@@ -52,7 +52,6 @@ public class UserService {
 		user.setFirstName(userDto.getFirstName());
 		user.setLastName(userDto.getLastName());
 		user.setEmail(userDto.getEmail());
-		user.setRole(userDto.getRole());
 		return user;
 	}
 }

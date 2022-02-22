@@ -30,11 +30,8 @@ public class Loan {
 	
 	private Date startDate;
 	
-	private Date endDate;
-	
 	@Enumerated(EnumType.STRING)
 	private LoanType type;
-	
 	
 	@Enumerated(EnumType.STRING)
 	private LoanStatus status;
@@ -47,10 +44,5 @@ public class Loan {
 	@JoinColumn(name = "fk_id_book", nullable = false)
 	private Book book;
 
-	private Float penalization;
-	
-	public Float calculatePenalization() {
-		int days = endDate.getDay() - startDate.getDay();
-		return days * 0.2F;
-	}
+
 }
