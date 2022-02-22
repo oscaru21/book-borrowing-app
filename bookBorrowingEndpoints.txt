@@ -1,17 +1,21 @@
 User:
+/users
 getUsers
 	-Method: GET
 	-localhost:8080/users
-getUserbyId
-	-Method: GET
-	-localhost:8080/users/{id}
 createUser
 	-Method: POST
 	-localhost:8080/users
 updateUser
 	-Method: PUT
 	-localhost:8080/users
-deleteUSer
+
+/users/{id}
+getUserbyId
+	-Method: GET
+	-localhost:8080/users/{id}
+
+deleteUser
 	-Method: DELETE
 	-localhost:8080/users/{id}
 
