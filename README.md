@@ -32,3 +32,6 @@ https://trello.com/b/avKyN8mS/bookborrowing
 
 ## Swagger Editor
 - https://editor.swagger.io/
+
+## Swagger documentation
+- https://app.swaggerhub.com/apis-docs/oscaru21/BookBorrowingAPI/1.0
