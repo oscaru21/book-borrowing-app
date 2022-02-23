@@ -35,8 +35,8 @@ public class LoanService {
 			loan.setBook(book);
 			loan.setUser(user);
 			loan.setStartDate(LocalDate.now());
-			loan.setStatus(LoanStatus.ON_TIME);
-			loan.setType(LoanType.BORROWING);
+			loan.setStatus(LoanStatus.ON_TIME.getValue());
+			loan.setType(LoanType.BORROWING.getValue());
 			//updates book stock
 			book.setStock(book.getStock() - 1);
 			bookRepository.save(book);
@@ -76,7 +76,7 @@ public class LoanService {
 			//updates book stock
 			book.setStock(book.getStock() + 1);
 			bookRepository.save(book);
-			loan.setStatus(LoanStatus.RETURNED);
+			loan.setStatus(LoanStatus.RETURNED.getValue());
 			return loanRepository.save(loan);
 		}else {
 			return loan;
@@ -87,8 +87,8 @@ public class LoanService {
 		
 		if(checkPenalties(loan) == 0){
 			loan.setStartDate(LocalDate.now());
-			loan.setStatus(LoanStatus.ON_TIME);
-			loan.setType(LoanType.RENEWAL);
+			loan.setStatus(LoanStatus.ON_TIME.getValue());
+			loan.setType(LoanType.RENEWAL.getValue());
 			return loanRepository.save(loan);
 		}else {
 			return loan;
@@ -99,10 +99,9 @@ public class LoanService {
 		return book.getStock() > 0;
 	}
 	
-	@SuppressWarnings("unlikely-arg-type")
 	private Boolean checkLimits(User user) {
 		return user.getLoans().stream().filter(el -> !el.getStatus()
-				.equals(LoanStatus.RETURNED.toString()))
+				.equals(LoanStatus.RETURNED.getValue()))
 				.collect(Collectors.toList()).size() < 4;
 	}
 }
