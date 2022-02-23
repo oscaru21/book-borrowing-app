@@ -1,6 +1,6 @@
 package com.appllication.teluslibrary.entities;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -22,13 +22,13 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "loan")
-@JsonIgnoreProperties({ "book", "person" })
+@JsonIgnoreProperties({ "book", "user" })
 public class Loan {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private Date startDate;
+	private LocalDate startDate;
 	
 	@Enumerated(EnumType.STRING)
 	private LoanType type;
