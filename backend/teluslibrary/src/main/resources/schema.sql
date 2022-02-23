@@ -1,4 +1,3 @@
-/*Books*/
 CREATE TABLE BOOK
 (
   ID    INT NOT NULL AUTO_INCREMENT,
@@ -25,7 +24,7 @@ CREATE TABLE LOAN
   fk_id_book  VARCHAR(255) NOT NULL,
   start_date  DATE NOT NULL,
   type        VARCHAR(255) NOT NULL,
-  status      VARCHAR(255) NOT NULL 
+  status      VARCHAR(255) NOT NULL
 );
 
 ALTER TABLE LOAN ADD FOREIGN KEY (fk_id_user) REFERENCES USER(id);
