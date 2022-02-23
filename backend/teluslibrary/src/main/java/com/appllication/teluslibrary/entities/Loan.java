@@ -44,5 +44,53 @@ public class Loan {
 	@JoinColumn(name = "fk_id_book", nullable = false)
 	private Book book;
 
+	public Long getId() {
+		return id;
+	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public LocalDate getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(LocalDate startDate) {
+		this.startDate = startDate;
+	}
+
+	public LoanType getType() {
+		return type;
+	}
+
+	public void setType(LoanType type) {
+		this.type = type;
+	}
+
+	public LoanStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(LoanStatus status) {
+		this.status = status;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Book getBook() {
+		return book;
+	}
+
+	public void setBook(Book book) {
+		this.book = book;
+	}
+
+	
 }

@@ -1,6 +1,7 @@
 package com.appllication.teluslibrary.services;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,6 +35,10 @@ public class LoanService {
 		loan.setStatus(LoanStatus.ON_TIME);
 		loan.setType(LoanType.BORROWING);
 		return loanRepository.save(loan);
+	}
+	
+	public List<Loan> getLoan(){
+		return loanRepository.findAll();
 	}
 
 }
