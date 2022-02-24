@@ -1,0 +1,34 @@
+'plantuml
+'ctrl + d
+'Extension Plant UML
+@startuml
+
+actor librarian
+
+participant Library
+participant RestAPI
+
+database H2
+
+librarian -> Library: "Register a New User"
+activate Library
+
+Library -> RestAPI:register(User)
+
+activate RestAPI #DarkSalmon
+
+RestAPI -> H2:register(User)
+activate H2
+H2 -> H2:Insert(Query)
+
+H2 -> RestAPI:Success
+deactivate H2
+
+RestAPI -> Library:User
+deactivate RestAPI
+
+Library -> librarian: "User Successfully Registered"
+deactivate Library
+
+@enduml
+
