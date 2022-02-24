@@ -1,22 +1,33 @@
-create table test(id bigint auto_increment, name varchar(255));
-insert into test(name) values('hello');
-insert into test(name) values('world');
-select * from test; 
-
+/*Books*/
 CREATE TABLE BOOK
 (
   ID    INT NOT NULL AUTO_INCREMENT,
-  TITLE VARCHAR(255) NOT NULL,
+  TITLE VARCHAR(255) NOT NULL UNIQUE,
   STOCK INT NOT NULL,
   PRIMARY KEY (ID)
 );
 
 CREATE TABLE USER
 (
-  ID INT NOT NULL AUTO_INCREMENT,
-  NAME     VARCHAR(255) NOT NULL,
-  EMAIL    VARCHAR(255)     NULL,
-  PASSWORD VARCHAR(255)     NULL,
-  PHONE    VARCHAR(255)     NULL,
+  id INT NOT NULL AUTO_INCREMENT,
+  first_name VARCHAR(255) NOT NULL,
+  last_name  VARCHAR(255) NOT NULL,
+  email      VARCHAR(255) NOT NULL UNIQUE,
   PRIMARY KEY (ID)
 );
+ALTER TABLE USER ADD CONSTRAINT uniq_user UNIQUE(first_name, last_name);
+
+
+CREATE TABLE LOAN
+(
+  correlative INT NOT NULL AUTO_INCREMENT,
+  fk_id_user  VARCHAR(255) NOT NULL,
+  fk_id_book  VARCHAR(255) NOT NULL,
+  start_date  DATE NOT NULL,
+  type        VARCHAR(255) NOT NULL,
+  status      VARCHAR(255) NOT NULL 
+);
+
+ALTER TABLE LOAN ADD FOREIGN KEY (fk_id_user) REFERENCES USER(id);
+ALTER TABLE LOAN ADD FOREIGN KEY (fk_id_book) REFERENCES BOOK(id);
+ALTER TABLE LOAN ADD PRIMARY KEY (fk_id_user,fk_id_book,start_date);
