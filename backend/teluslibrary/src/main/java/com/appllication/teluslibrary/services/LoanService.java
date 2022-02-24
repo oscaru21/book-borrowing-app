@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.appllication.teluslibrary.entities.Book;
 import com.appllication.teluslibrary.entities.Loan;
 import com.appllication.teluslibrary.entities.User;
+import com.appllication.teluslibrary.exceptions.ResourceNotFound;
 import com.appllication.teluslibrary.payload.createLoanDto;
 import com.appllication.teluslibrary.payload.updateLoanDto;
 import com.appllication.teluslibrary.repositories.BookRepository;
@@ -62,7 +63,7 @@ public class LoanService {
 	}
 
 	public Loan getLoan(Long id) {
-		return loanRepository.getById(id);
+		return loanRepository.findById(id).orElseThrow(()-> new ResourceNotFound("Loan", "id", id.toString()));
 	}
 	
 	public Float checkPenalties(Loan loan) {
@@ -102,6 +103,6 @@ public class LoanService {
 	private Boolean checkLimits(User user) {
 		return user.getLoans().stream().filter(el -> !el.getStatus()
 				.equals(LoanStatus.RETURNED.getValue()))
-				.collect(Collectors.toList()).size() < 4;
+				.collect(Collectors.toList()).size() < 3;
 	}
 }

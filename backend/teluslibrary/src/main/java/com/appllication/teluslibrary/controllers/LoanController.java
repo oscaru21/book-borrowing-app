@@ -1,6 +1,8 @@
 package com.appllication.teluslibrary.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,15 +24,15 @@ public class LoanController {
 	LoanService ls;
 	
 	@PostMapping
-	public Loan createLoan(@RequestBody createLoanDto loanDto) {
-		return ls.createLoan(loanDto);
+	public ResponseEntity<Loan> createLoan(@RequestBody createLoanDto loanDto) {
+		return new ResponseEntity<>(ls.createLoan(loanDto), HttpStatus.CREATED);
 	}
 	@PutMapping
-	public Loan updateLoan(@RequestBody updateLoanDto loanDto) {
-		return ls.updateLoan(loanDto);
+	public ResponseEntity<Loan> updateLoan(@RequestBody updateLoanDto loanDto) {
+		return new ResponseEntity<>(ls.updateLoan(loanDto), HttpStatus.OK);
 	}
 	@GetMapping("/{id}")
-	public Loan getLoan(@PathVariable Long id) {
-		return ls.getLoan(id);
+	public ResponseEntity<Loan> getLoan(@PathVariable Long id) {
+		return new ResponseEntity<>(ls.getLoan(id), HttpStatus.OK);
 	}
 }
