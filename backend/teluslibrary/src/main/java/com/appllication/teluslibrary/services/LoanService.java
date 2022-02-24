@@ -36,9 +36,5 @@ public class LoanService {
 		loan.setType(LoanType.BORROWING);
 		return loanRepository.save(loan);
 	}
-	
-	public List<Loan> getLoan(){
-		return loanRepository.findAll();
-	}
 
 }
