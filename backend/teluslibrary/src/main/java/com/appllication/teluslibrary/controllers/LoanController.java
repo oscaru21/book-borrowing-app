@@ -21,8 +21,4 @@ public class LoanController {
 		return ls.createLoan(loanDto);
 	}
 	
-	@GetMapping("/loans/{id}")
-	public List<Loan> getLoans(){
-		return ls.getLoan();
-	}
 }
