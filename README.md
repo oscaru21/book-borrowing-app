@@ -10,6 +10,19 @@
 ## Use Cases Diagram
 ![](./img/2022-02-22-10-51-48.png)
 
+# Sequence Diagram
+## Register New User
+![](./Docs/RegisterNewUserSequence.png)
+
+# Sequence Diagram
+## Register New Book 
+![](./Docs/RegisterNewBookSequence.png)
+
+# Sequence Diagram
+## Register New Loan 
+![](./Docs/RegisterNewLoanSequence.png)
+
+
 ## Trello Board
 https://trello.com/b/avKyN8mS/bookborrowing
 

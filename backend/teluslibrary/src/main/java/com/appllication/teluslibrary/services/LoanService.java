@@ -10,11 +10,13 @@ import com.appllication.teluslibrary.entities.Book;
 import com.appllication.teluslibrary.entities.Loan;
 import com.appllication.teluslibrary.entities.User;
 import com.appllication.teluslibrary.exceptions.ResourceNotFound;
+import com.appllication.teluslibrary.payload.LoanDto;
 import com.appllication.teluslibrary.payload.createLoanDto;
 import com.appllication.teluslibrary.payload.updateLoanDto;
 import com.appllication.teluslibrary.repositories.BookRepository;
 import com.appllication.teluslibrary.repositories.LoanRepository;
 import com.appllication.teluslibrary.repositories.UserRepository;
+import com.appllication.teluslibrary.util.LoanMapper;
 import com.appllication.teluslibrary.util.LoanStatus;
 import com.appllication.teluslibrary.util.LoanType;
 
@@ -27,7 +29,7 @@ public class LoanService {
 	@Autowired
 	BookRepository bookRepository;
 	
-	public Loan createLoan(createLoanDto loanDto) {
+	public LoanDto createLoan(createLoanDto loanDto) {
 		User user = userRepository.findById(loanDto.getUserId()).get();
 		Book book = bookRepository.findById(loanDto.getBookId()).get();
 		
@@ -41,29 +43,31 @@ public class LoanService {
 			//updates book stock
 			book.setStock(book.getStock() - 1);
 			bookRepository.save(book);
-			return loanRepository.save(loan);
+			
+			return LoanMapper.mapLoanToDto(loanRepository.save(loan));
 		}else {
+			System.out.println("holi");
 			return null;
 		}
 		
 	}
 	
-	public Loan updateLoan(updateLoanDto loanDto) {
+	public LoanDto updateLoan(updateLoanDto loanDto) {
 		Loan loan = loanRepository.getById(loanDto.getLoanId());
 		switch (loanDto.getOperation()) {
 		case "renew":
-			return renewBook(loan);
+			return LoanMapper.mapLoanToDto(renewBook(loan));
 
 		case "return":
-			return returnBook(loan);
+			return LoanMapper.mapLoanToDto(returnBook(loan));
 
 		default:
-			return loan;
+			return LoanMapper.mapLoanToDto(loan);
 		}
 	}
 
-	public Loan getLoan(Long id) {
-		return loanRepository.findById(id).orElseThrow(()-> new ResourceNotFound("Loan", "id", id.toString()));
+	public LoanDto getLoan(Long id) {
+		return LoanMapper.mapLoanToDto(loanRepository.findById(id).orElseThrow(()-> new ResourceNotFound("Loan", "id", id.toString())));
 	}
 	
 	public Float checkPenalties(Loan loan) {
