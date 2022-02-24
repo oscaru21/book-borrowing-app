@@ -2,6 +2,14 @@ const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
   devServer: {
     port: 4500,
+    proxy: {
+      "^/api": {
+        target: "http://localhost:8080",
+        changeOrigin: true,
+        logLevel: "debug",
+        pathRewrite: { "^/api": "/" },
+      },
+    },
   },
   transpileDependencies: ["vuetify"],
   configureWebpack: (config) => {

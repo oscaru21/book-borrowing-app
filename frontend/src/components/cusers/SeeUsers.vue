@@ -9,17 +9,16 @@
         hide-details
       ></v-text-field>
     </v-card-title>
-    <v-data-table
-      v-if="boocks.length < 1"
+    <!-- <v-data-table
+      v-if="users.length < 1"
       item-key="name"
       class="elevation-1"
       loading
       loading-text="Loading... Please wait"
-    ></v-data-table>
+    ></v-data-table> -->
     <v-data-table
-      v-else
       :headers="headers"
-      :items="boocks"
+      :items="users"
       :search="search"
       loading-text="Loading... Please wait"
     ></v-data-table>
@@ -31,17 +30,17 @@ import { mapState } from "vuex";
 export default {
   data: () => ({
     search: "",
-    boocks: [
-      { id: "01", title: "Harry potter", stock: "50" },
-      { id: "02", title: "Baldor", stock: "15" },
-      { id: "03", title: "50 sombras de gray", stock: "55" },
-      { id: "04", title: "bajo la misma estrella", stock: "10" },
-      { id: "05", title: "Alicia en el pais de las maravillas", stock: "8" },
-      { id: "06", title: "algo xd", stock: "12" },
-    ],
+    // boocks: [
+    //   { id: "01", title: "Harry potter", stock: "50" },
+    //   { id: "02", title: "Baldor", stock: "15" },
+    //   { id: "03", title: "50 sombras de gray", stock: "55" },
+    //   { id: "04", title: "bajo la misma estrella", stock: "10" },
+    //   { id: "05", title: "Alicia en el pais de las maravillas", stock: "8" },
+    //   { id: "06", title: "algo xd", stock: "12" },
+    // ],
   }),
   computed: {
-    ...mapState("bookstore", ["books"]),
+    ...mapState("userStore", ["users"]),
     headers() {
       return [
         {
@@ -50,14 +49,19 @@ export default {
           value: "id",
         },
         {
-          text: "Title",
+          text: "Name",
           align: "start",
-          value: "title",
+          value: "firstName",
         },
         {
-          text: "Stock",
+          text: "Last Name",
           align: "start",
-          value: "stock",
+          value: "lastName",
+        },
+        {
+          text: "e-mail",
+          align: "start",
+          value: "email",
         },
       ];
     },
@@ -76,7 +80,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("bookstore/loadBooks");
+    this.$store.dispatch("userStore/loadUsers");
   },
 };
 </script>

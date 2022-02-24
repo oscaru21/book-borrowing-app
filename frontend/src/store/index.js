@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
+import bookStore from "./modules/bookStore";
+import userStore from "./modules/userStore";
+import loanStore from "./modules/loanStore";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -8,5 +10,9 @@ export default new Vuex.Store({
   getters: {},
   mutations: {},
   actions: {},
-  modules: {},
+  modules: {
+    bookStore,
+    loanstore,
+    userStore,
+  },
 });
