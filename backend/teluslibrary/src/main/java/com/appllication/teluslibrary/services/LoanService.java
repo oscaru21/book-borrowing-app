@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import com.appllication.teluslibrary.entities.Book;
 import com.appllication.teluslibrary.entities.Loan;
 import com.appllication.teluslibrary.entities.User;
-import com.appllication.teluslibrary.exceptions.ResourceNotFound;
+import com.appllication.teluslibrary.exceptions.ResourceNotFoundException;
 import com.appllication.teluslibrary.payload.LoanDto;
 import com.appllication.teluslibrary.payload.createLoanDto;
 import com.appllication.teluslibrary.payload.updateLoanDto;
@@ -67,7 +67,7 @@ public class LoanService {
 	}
 
 	public LoanDto getLoan(Long id) {
-		return LoanMapper.mapLoanToDto(loanRepository.findById(id).orElseThrow(()-> new ResourceNotFound("Loan", "id", id.toString())));
+		return LoanMapper.mapLoanToDto(loanRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Loan", "id", id.toString())));
 	}
 	
 	public Float checkPenalties(Loan loan) {
