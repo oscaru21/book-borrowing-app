@@ -1,8 +1,8 @@
 import axios from "axios";
+const URL = "http://localhost:8080/loans";
 
 const loanStore = {
   namespaced: true,
-  url: "http://localhost:8080/loans",
   state: {
     loans: [],
   },
@@ -17,7 +17,7 @@ const loanStore = {
   actions: {
     loadLoans({ commit }) {
       axios
-        .get(this.url)
+        .get(`${URL}`)
         .then((res) => {
           commit("SET_LOANS", res.data);
         })

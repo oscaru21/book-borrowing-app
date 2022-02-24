@@ -12,7 +12,7 @@ export default new Vuex.Store({
   actions: {},
   modules: {
     bookStore,
-    loanstore,
+    loanStore,
     userStore,
   },
 });

@@ -26,7 +26,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data: () => ({
     search: "",
@@ -40,7 +40,7 @@ export default {
     // ],
   }),
   computed: {
-    ...mapState("userStore", ["users"]),
+    ...mapGetters(["users"]),
     headers() {
       return [
         {
@@ -67,6 +67,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(["loadUsers"]),
     filterOnlyCapsText(value, search) {
       return (
         value != null &&
@@ -80,7 +81,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("userStore/loadUsers");
+    this.loadUsers();
   },
 };
 </script>

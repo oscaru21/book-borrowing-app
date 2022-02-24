@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 export default {
   data: () => ({
     search: "",
@@ -41,7 +41,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapState("bookstore", ["books"]),
+    ...mapState(["books"]),
     headers() {
       return [
         {
@@ -63,6 +63,7 @@ export default {
     },
   },
   methods: {
+    ...mapActions(["loadBooks"]),
     filterOnlyCapsText(value, search) {
       return (
         value != null &&
@@ -76,7 +77,7 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("bookstore/loadBooks");
+    this.loadBooks();
   },
 };
 </script>
