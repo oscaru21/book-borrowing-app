@@ -41,9 +41,4 @@ public class LoanController {
 	public ResponseEntity<Loan> getLoan(@PathVariable Long id) {
 		return new ResponseEntity<>(ls.getLoan(id), HttpStatus.OK);
 	}
-	
-	@GetMapping("/loans/{id}")
-	public List<Loan> getLoans(){
-		return ls.getLoan();
-	}
 }
