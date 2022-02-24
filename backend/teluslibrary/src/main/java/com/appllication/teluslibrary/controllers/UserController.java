@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.appllication.teluslibrary.entities.User;
 import com.appllication.teluslibrary.payload.CreateUserDto;
+import com.appllication.teluslibrary.payload.UserDto;
 import com.appllication.teluslibrary.services.UserService;
 
 @RestController
@@ -22,28 +23,28 @@ public class UserController {
 	@Autowired
 	UserService us;
 	@GetMapping("/users")
-	public List<User> getUsers(){
+	public List<UserDto> getUsers(){
 		return us.getUsers();
 	}
 	@PostMapping("/users")
-	public User createUser(@RequestBody CreateUserDto userDto) {
+	public UserDto createUser(@RequestBody CreateUserDto userDto) {
 		return us.createUser(userDto);
 	}
 	@PutMapping("/users")
-	public User updateUser(@RequestBody User user) {
+	public UserDto updateUser(@RequestBody User user) {
 		return us.updateUser(user);
 	}
 	@GetMapping("/users/{id}")
-	public ResponseEntity<User> getUser(@PathVariable Long id) {
+	public ResponseEntity<UserDto> getUser(@PathVariable Long id) {
 		try {
-			User user = us.getUser(id);
+			UserDto user = us.getUser(id);
 			return new ResponseEntity<>(user, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
 	@DeleteMapping("/users/{id}")
-	public ResponseEntity<User> deleteUser(@PathVariable Long id) {
+	public ResponseEntity<String> deleteUser(@PathVariable Long id) {
 		return us.deleteUser(id);
 	}
 }
