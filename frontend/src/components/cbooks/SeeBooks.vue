@@ -10,7 +10,7 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table
-      v-if="boocks.length < 1"
+      v-if="books.length < 1"
       item-key="name"
       class="elevation-1"
       loading
@@ -19,7 +19,7 @@
     <v-data-table
       v-else
       :headers="headers"
-      :items="boocks"
+      :items="books"
       :search="search"
       loading-text="Loading... Please wait"
     ></v-data-table>
@@ -27,21 +27,13 @@
 </template>
 
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data: () => ({
     search: "",
-    boocks: [
-      { id: "01", title: "Harry potter", stock: "50" },
-      { id: "02", title: "Baldor", stock: "15" },
-      { id: "03", title: "50 sombras de gray", stock: "55" },
-      { id: "04", title: "bajo la misma estrella", stock: "10" },
-      { id: "05", title: "Alicia en el pais de las maravillas", stock: "8" },
-      { id: "06", title: "algo xd", stock: "12" },
-    ],
   }),
   computed: {
-    ...mapState(["books"]),
+    ...mapGetters(["books"]),
     headers() {
       return [
         {

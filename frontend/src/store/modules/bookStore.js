@@ -30,7 +30,7 @@ const actions = {
 
   async createBook({ commit }, book) {
     await axios
-      .post(`${URL}`, JSON.stringify(book))
+      .post(`${URL}`, book)
       .then((res) => {
         commit("POST_BOOK", res.data);
       })

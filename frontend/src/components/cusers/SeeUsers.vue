@@ -9,14 +9,15 @@
         hide-details
       ></v-text-field>
     </v-card-title>
-    <!-- <v-data-table
+    <v-data-table
       v-if="users.length < 1"
       item-key="name"
       class="elevation-1"
       loading
       loading-text="Loading... Please wait"
-    ></v-data-table> -->
+    ></v-data-table>
     <v-data-table
+      v-else
       :headers="headers"
       :items="users"
       :search="search"
@@ -30,14 +31,6 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data: () => ({
     search: "",
-    // boocks: [
-    //   { id: "01", title: "Harry potter", stock: "50" },
-    //   { id: "02", title: "Baldor", stock: "15" },
-    //   { id: "03", title: "50 sombras de gray", stock: "55" },
-    //   { id: "04", title: "bajo la misma estrella", stock: "10" },
-    //   { id: "05", title: "Alicia en el pais de las maravillas", stock: "8" },
-    //   { id: "06", title: "algo xd", stock: "12" },
-    // ],
   }),
   computed: {
     ...mapGetters(["users"]),
@@ -62,6 +55,11 @@ export default {
           text: "e-mail",
           align: "start",
           value: "email",
+        },
+        {
+          text: "Active loans",
+          align: "start",
+          value: "activeLoans",
         },
       ];
     },
