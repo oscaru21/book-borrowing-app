@@ -1,7 +1,5 @@
 package com.appllication.teluslibrary.payload;
 
-import com.appllication.teluslibrary.util.UserRole;
-
 import lombok.Data;
 
 @Data

@@ -3,6 +3,7 @@ package com.appllication.teluslibrary.entities;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ import lombok.Data;
 @Table(name = "BOOK", uniqueConstraints={@UniqueConstraint(columnNames= {"id"})})
 public class Book {
 	@Id
+	@Column(nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
