@@ -18,6 +18,10 @@
 ## Register New Book 
 ![](./Docs/RegisterNewBookSequence.png)
 
+# Sequence Diagram
+## Register New Loan 
+![](./Docs/RegisterNewLoanSequence.png)
+
 
 ## Trello Board
 https://trello.com/b/avKyN8mS/bookborrowing
