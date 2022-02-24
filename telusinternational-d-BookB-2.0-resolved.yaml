@@ -1,0 +1,111 @@
+---
+openapi: 3.0.0
+info:
+  title: Book Borrowing
+  description: Borrowing system
+  version: "2.0"
+servers:
+- url: https://virtserver.swaggerhub.com/telusinternational-d/BookB/2.0
+  description: SwaggerHub API Auto Mocking
+paths:
+  /books:
+    get:
+      summary: Returns the list of books
+      responses:
+        "200":
+          description: a JSON array with books id, names and stock
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/books'
+    post:
+      summary: Add new Book
+      requestBody:
+        description: Add new book
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/createbooksDTO'
+        required: true
+      responses:
+        "201":
+          description: Created
+  /books/{id}:
+    get:
+      summary: Return a book by the id
+      parameters:
+      - name: id
+        in: path
+        description: Book id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          minimum: 1
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+  /books/{name}:
+    get:
+      summary: Return a book by their name
+      parameters:
+      - name: name
+        in: path
+        description: Book name
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+          example: Title 1
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/inline_response_200'
+components:
+  schemas:
+    books:
+      type: array
+      items:
+        $ref: '#/components/schemas/inline_response_200'
+    createbooksDTO:
+      type: array
+      items:
+        $ref: '#/components/schemas/createbooksDTO_inner'
+    inline_response_200:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        title:
+          type: string
+          example: Title
+        stock:
+          type: integer
+          format: int64
+          example: 123
+    createbooksDTO_inner:
+      type: object
+      properties:
+        title:
+          type: string
+          example: Title
+        stock:
+          type: integer
+          format: int64
+          example: 123
