@@ -41,6 +41,15 @@ public class BookController {
 	}
 	
 	//Get Book by Id
+	/*
+	@GetMapping("/{id}")
+	public ResponseEntity<Book> getBookId(@PathVariable(value="id") long bookId) throws ResourceNotFound {
+		Book book = bookRepository.findById(bookId)
+				.orElseThrow(/*ResourceNotFound);
+		return ResponseEntity.ok().body(book);
+	}
+	*/
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Book> getBook(@PathVariable Long id){
 		try {
@@ -51,7 +60,7 @@ public class BookController {
 		}
 	}
 	//Get Book by Title
-
+	
 	@GetMapping("/searchBy/{title}")
 	public ResponseEntity<Book> getBookByTitle(@PathVariable String title){
 		try {
@@ -61,4 +70,16 @@ public class BookController {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
+	
+	
+	/*
+	@GetMapping("/{title}")
+	public ResponseEntity<Book> getBookByTitle(@PathVariable(value="title") String bookTitle) throws ResourceNotFound {
+		Book book = bs.findByTitle(bookTitle);
+		return ResponseEntity.ok().body(book);
+	}
+	 */
+	
+	
+	
 }

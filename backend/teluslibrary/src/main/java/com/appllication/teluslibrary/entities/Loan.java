@@ -2,7 +2,6 @@ package com.appllication.teluslibrary.entities;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -14,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.appllication.teluslibrary.util.LoanStatus;
 import com.appllication.teluslibrary.util.LoanType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -26,17 +26,18 @@ import lombok.Data;
 public class Loan {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable = false)
-	private Long correlative;
+	private Long id;
 	
 	private LocalDate startDate;
 	
-	private String type;
+	@Enumerated(EnumType.STRING)
+	private LoanType type;
 	
-	private String status;
+	@Enumerated(EnumType.STRING)
+	private LoanStatus status;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "fk_id_user", nullable = false)
+	@JoinColumn(name = "fk_id_person", nullable = false)
 	private User user;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
