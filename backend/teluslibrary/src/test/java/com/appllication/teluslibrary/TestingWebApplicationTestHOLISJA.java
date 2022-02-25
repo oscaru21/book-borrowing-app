@@ -1,3 +1,4 @@
+/*
 package com.appllication.teluslibrary;
 
 import static org.hamcrest.Matchers.containsString;
@@ -15,7 +16,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class TeluslibraryApplicationTests {
+public class TestingWebApplicationTestHOLISJA {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -25,20 +26,5 @@ public class TeluslibraryApplicationTests {
 		this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk())
 				.andExpect(content().string(containsString("Hello, World")));
 	}
-}
-
-/*
-package com.appllication.teluslibrary;
-
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
-
-@SpringBootTest
-class TeluslibraryApplicationTests {
-
-	@Test
-	void contextLoads() {
-	}
-
 }
 */

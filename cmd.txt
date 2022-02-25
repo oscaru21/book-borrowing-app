@@ -1,0 +1,17 @@
+
+mvn clean install -U -DskipTests
+mvn package
+mvn dependency:resolve
+./mvnw spring-boot:run
+
+The download happens when we execute the following commands:
+
+mvn package
+mvn install
+Both of the above include executing the following command:
+
+mvn dependency:resolve 
+
+Test
+https://mkyong.com/maven/how-to-run-unit-test-with-maven/
+./mvnw test
