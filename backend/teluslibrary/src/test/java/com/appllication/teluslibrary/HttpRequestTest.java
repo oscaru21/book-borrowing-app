@@ -59,30 +59,6 @@ public class HttpRequestTest {
 		.accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().is(200))
 		.andExpect(MockMvcResultMatchers.jsonPath("$.firstName").value("Joe"));
-
-		/*
-		String json = "{\"firstName\": \"Joe\", \"lastName\": \"Swanson\", \"email\":\"jonas251@gmail.com\" }";
-        .contentType(MediaType.APPLICATION_JSON).content(json))
-		
-		mockMvc.perform(
-		post("/users")
-		.content(objectMapper.writeValueAsString(usr))
-		.contentType(MediaType.APPLICATION_JSON)
-		.accept(MediaType.APPLICATION_JSON))
-		.andExpect(status().isCreated())
-		.andExpect(MockMvcResultMatchers.jsonPath("$.firstName").value("Joe"));
-		*/
-
-		/*
-		mockMvc.perform(MockMvcRequestBuilders.post("/users", 42L)
-				.contentType("application/json")
-				.param("sendWelcomeMail", "true")
-				.content(objectMapper.writeValueAsString(usr)))
-				.andExpect(status().isOk());
-
-		UserEntity userEntity = userRepository.findByName("Zaphod");
-		assertThat(userEntity.getEmail()).isEqualTo("zaphod@galaxy.net");
-		*/
 	}
 
 	@Test
@@ -96,3 +72,8 @@ public class HttpRequestTest {
 		.andExpect(MockMvcResultMatchers.jsonPath("$.title").value("Jarry Popotes :v"));
 	}
 }
+
+/* Sources:
+https://reflectoring.io/spring-boot-test/
+https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/
+*/
