@@ -11,3 +11,7 @@ mvn install
 Both of the above include executing the following command:
 
 mvn dependency:resolve 
+
+Test
+https://mkyong.com/maven/how-to-run-unit-test-with-maven/
+./mvnw test
