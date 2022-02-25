@@ -14,11 +14,25 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Data
 @Entity
 @Table(name="USER",uniqueConstraints={@UniqueConstraint(columnNames={"email"})})
 public class User {
+
+	public User() {
+		super();
+	}
+	public User(String name, String surname, String email) {
+		super();
+		this.firstName = name;
+		this.lastName = surname;
+		this.email = email;
+	}
 	@Id
 	@Column(nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

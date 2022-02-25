@@ -1,0 +1,5 @@
+
+mvn clean install -U -DskipTests
+mvn package
+mvn dependency:resolve
+./mvnw spring-boot:run

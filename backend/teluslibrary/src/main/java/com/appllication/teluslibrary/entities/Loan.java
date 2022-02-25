@@ -18,7 +18,11 @@ import com.appllication.teluslibrary.util.LoanType;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Data
 @Entity
 @Table(name = "loan")
