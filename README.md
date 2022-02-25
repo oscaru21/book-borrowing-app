@@ -48,3 +48,4 @@ https://trello.com/b/avKyN8mS/bookborrowing
 
 ## Swagger documentation
 - https://app.swaggerhub.com/apis-docs/oscaru21/BookBorrowingAPI/1.0
+- http://localhost:8080/swagger-ui/
