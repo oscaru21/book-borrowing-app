@@ -93,6 +93,6 @@ public class HttpRequestTest {
 		.contentType(MediaType.APPLICATION_JSON)
 		.accept(MediaType.APPLICATION_JSON))
 		.andExpect(status().is(200))
-		.andExpect(MockMvcResultMatchers.jsonPath("$.firstName").value("Joe"));
+		.andExpect(MockMvcResultMatchers.jsonPath("$.title").value("Jarry Popotes :v"));
 	}
 }
