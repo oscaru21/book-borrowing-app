@@ -1,5 +1,6 @@
 <template>
-  <v-card>
+  <v-card width="auto" elevation="2" shaped tile class="pa-8">
+    <h3 class="h2,Heading 3">Registered users:</h3>
     <v-card-title>
       <v-text-field
         v-model="search"
@@ -10,14 +11,6 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table
-      v-if="users.length < 1"
-      item-key="name"
-      class="elevation-1"
-      loading
-      loading-text="Loading... Please wait"
-    ></v-data-table>
-    <v-data-table
-      v-else
       :headers="headers"
       :items="users"
       :search="search"

@@ -1,15 +1,26 @@
 <template>
-  <div class="pa-8">
-    <create-user />
+  <v-container class="pa-8">
+    <v-card class="pa-8" width="auto">
+      <v-card-title>Users management</v-card-title>
+      <v-row>
+        <v-col cols="4">
+          <create-user />
+        </v-col>
+        <v-col cols="5">
+          <delete-user />
+        </v-col>
+      </v-row>
+    </v-card>
     <see-users />
-  </div>
+  </v-container>
 </template>
 
 <script>
 import SeeUsers from "@/components/cusers/SeeUsers.vue";
 import CreateUser from "@/components/cusers/CreateUser.vue";
+import DeleteUser from "@/components/cusers/DeleteUser.vue";
 export default {
-  components: { SeeUsers, CreateUser },
+  components: { SeeUsers, CreateUser, DeleteUser },
   name: "UsersView",
   data: () => ({
     books: [],

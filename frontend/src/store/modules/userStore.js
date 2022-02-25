@@ -15,6 +15,11 @@ const mutations = {
   POST_USER(state, user) {
     state.users.push(user);
   },
+  DELETE_USER(state, user) {
+    state.users = state.users.filter(function (item) {
+      return item !== user;
+    });
+  },
 };
 const actions = {
   async loadUsers({ commit }) {
@@ -32,6 +37,15 @@ const actions = {
       .then((res) => {
         console.log(res.data);
         commit("POST_USER", res.data);
+      })
+      .catch((err) => console.error(err));
+  },
+  async deleteUser({ commit }, user) {
+    await axios
+      .delete(`${URL}` + "/" + user.id)
+      .then((res) => {
+        console.log(res.data);
+        commit("DELETE_USER", res.data);
       })
       .catch((err) => console.error(err));
   },

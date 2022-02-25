@@ -8,7 +8,7 @@
     tile
     class="pa-8"
   >
-    <h3 class="h3">Register a User</h3>
+    <v-card-title class="h3">Register an User:</v-card-title>
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field
         v-model="name"
@@ -29,16 +29,19 @@
         label="E-mail"
         required
       ></v-text-field>
-
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="submit">
-        Submit
-      </v-btn>
+      <v-card-actions>
+        <v-btn :disabled="!valid" color="success" class="mr-4" @click="submit">
+          Submit
+        </v-btn>
+        <v-btn color="gray" class="mr-4" @click="reset">Cancel </v-btn>
+      </v-card-actions>
     </v-form>
   </v-card>
 </template>
 
 <script>
 import { mapActions } from "vuex";
+
 export default {
   data: () => ({
     user: {},
@@ -58,25 +61,57 @@ export default {
       (v) => !!v || "Name is required",
       (v) => /([A-Za-z])+/.test(v) || "Last Name must be valid",
     ],
+    noti: {
+      title: "",
+      text: "",
+      color: "",
+      icon: "",
+      visible: false,
+    },
   }),
 
   methods: {
     ...mapActions(["createUser"]),
     submit() {
-      //   this.$refs.form.validate((algo) => {
-      //     if (algo) {
-      this.user = {
-        firstName: this.name,
-        lastName: this.lastName,
-        email: this.email,
-      };
-      console.log(JSON.stringify(this.user));
-      this.createUser(this.user);
-      this.reset();
-      // } else {
-      //   console.log("falel");
-      // }
-      //   });
+      if (this.$refs.form.validate()) {
+        this.user = {
+          firstName: this.name,
+          lastName: this.lastName,
+          email: this.email,
+        };
+        this.createUser(this.user);
+        this.reset();
+        this.$toast.success("Success: User was registered", {
+          position: "top-right",
+          timeout: 2000,
+          closeOnClick: true,
+          pauseOnFocusLoss: true,
+          pauseOnHover: false,
+          draggable: true,
+          draggablePercent: 1,
+          showCloseButtonOnHover: true,
+          hideProgressBar: true,
+          closeButton: "button",
+          icon: true,
+          rtl: false,
+        });
+      } else {
+        console.log("Error");
+        this.$toast.error("ERROR: Please validate the data entered", {
+          position: "top-right",
+          timeout: 2000,
+          closeOnClick: true,
+          pauseOnFocusLoss: true,
+          pauseOnHover: false,
+          draggable: true,
+          draggablePercent: 1,
+          showCloseButtonOnHover: true,
+          hideProgressBar: true,
+          closeButton: "button",
+          icon: true,
+          rtl: false,
+        });
+      }
     },
     reset() {
       this.$refs.form.reset();
