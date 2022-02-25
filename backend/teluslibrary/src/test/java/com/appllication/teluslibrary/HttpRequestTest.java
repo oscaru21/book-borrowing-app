@@ -74,6 +74,7 @@ public class HttpRequestTest {
 }
 
 /* Sources:
+https://spring.io/guides/gs/testing-web/#initial
 https://reflectoring.io/spring-boot-test/
 https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/
 */
