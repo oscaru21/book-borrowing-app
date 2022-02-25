@@ -8,6 +8,7 @@ import com.appllication.teluslibrary.entities.Loan;
 import com.appllication.teluslibrary.payload.LoanDto;
 
 public class LoanMapper {
+	
 	public static LoanDto mapLoanToDto(Loan loan) {
 		LoanDto loanDto = new LoanDto();
 		loanDto.setId(loan.getCorrelative());
