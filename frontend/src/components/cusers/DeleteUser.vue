@@ -16,28 +16,37 @@
         label="Insert an id"
         required
       ></v-text-field>
+      <v-container v-if="show" class="pa-8">
+        <v-card-title>User data:</v-card-title>
+        <v-text-field
+          disabled
+          v-model="user.firstName"
+          label="Name"
+        ></v-text-field>
+        <v-text-field
+          disabled
+          v-model="user.lastName"
+          label="Last Name"
+        ></v-text-field>
+
+        <v-text-field
+          disabled
+          v-model="user.email"
+          label="E-mail"
+        ></v-text-field>
+      </v-container>
+    </v-form>
+    <v-card-actions>
       <v-btn :disabled="!valid" color="primary" class="mr-2" @click="find">
         Find User
       </v-btn>
       <v-btn v-if="show" color="error" class="mr-2" @click="deleteuser"
         >Delete</v-btn
       >
-      <v-btn color="gray" class="mr-2" @click="cancel">Cancel </v-btn>
-    </v-form>
-    <v-card v-if="show" class="pa-8" plain>
-      <v-text-field
-        disabled
-        v-model="user.firstName"
-        label="Name"
-      ></v-text-field>
-      <v-text-field
-        disabled
-        v-model="user.lastName"
-        label="Last Name"
-      ></v-text-field>
-
-      <v-text-field disabled v-model="user.email" label="E-mail"></v-text-field>
-    </v-card>
+      <v-btn color="gray" class="mr-2" @click="cancel"
+        >Cancel
+      </v-btn></v-card-actions
+    >
   </v-card>
 </template>
 
@@ -54,7 +63,7 @@ export default {
     user: [],
   }),
   methods: {
-    ...mapActions(["deleteUser"]),
+    ...mapActions(["deleteUser", "loadUsers"]),
     find() {
       const ob = this.users.filter(({ id }) => this.id == id);
       this.user = ob[0];
@@ -75,6 +84,7 @@ export default {
         icon: true,
         rtl: false,
       });
+      this.cancel();
     },
     cancel() {
       this.reset();

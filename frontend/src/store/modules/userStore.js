@@ -3,14 +3,19 @@ const URL = "http://localhost:8080/users";
 
 const state = {
   users: [],
+  userid: [],
 };
 
-const getters = {
+let getters = {
   users: (state) => state.users,
+  usersid: (state) => state.userid,
 };
 const mutations = {
   SET_USERS(state, data) {
     state.users = data;
+  },
+  SET_USERID(state, data) {
+    state.userid = data;
   },
   POST_USER(state, user) {
     state.users.push(user);
@@ -30,6 +35,14 @@ const actions = {
       })
       .catch((err) => console.error(err));
   },
+  async getUserId({ commit }, id) {
+    await axios
+      .get(`${URL}` + `/` + id)
+      .then((res) => {
+        commit("SET_USERID", res.data);
+      })
+      .catch((err) => console.error(err));
+  },
 
   async createUser({ commit }, user) {
     await axios
@@ -45,7 +58,7 @@ const actions = {
       .delete(`${URL}` + "/" + user.id)
       .then((res) => {
         console.log(res.data);
-        commit("DELETE_USER", res.data);
+        commit("DELETE_USER", user);
       })
       .catch((err) => console.error(err));
   },

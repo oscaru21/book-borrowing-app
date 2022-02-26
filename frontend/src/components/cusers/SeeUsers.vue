@@ -27,6 +27,9 @@ export default {
   }),
   computed: {
     ...mapGetters(["users"]),
+    refresh() {
+      return this.users.length;
+    },
     headers() {
       return [
         {
@@ -73,6 +76,11 @@ export default {
   },
   created() {
     this.loadUsers();
+  },
+  watch: {
+    refresh() {
+      this.loadUsers();
+    },
   },
 };
 </script>

@@ -6,9 +6,10 @@
         <v-col cols="4">
           <create-user />
         </v-col>
-        <v-col cols="5">
+        <v-col cols="4">
           <delete-user />
         </v-col>
+        <v-col cols="4"></v-col>
       </v-row>
     </v-card>
     <see-users />
