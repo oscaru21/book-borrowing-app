@@ -1,22 +1,24 @@
 package com.appllication.teluslibrary.services;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.appllication.teluslibrary.entities.Book;
 import com.appllication.teluslibrary.entities.Loan;
 import com.appllication.teluslibrary.entities.User;
+import com.appllication.teluslibrary.exceptions.LibraryAPIException;
 import com.appllication.teluslibrary.exceptions.ResourceNotFoundException;
+import com.appllication.teluslibrary.payload.CreateLoanDto;
 import com.appllication.teluslibrary.payload.LoanDto;
-import com.appllication.teluslibrary.payload.createLoanDto;
-import com.appllication.teluslibrary.payload.updateLoanDto;
+import com.appllication.teluslibrary.payload.UpdateLoanDto;
 import com.appllication.teluslibrary.repositories.BookRepository;
 import com.appllication.teluslibrary.repositories.LoanRepository;
 import com.appllication.teluslibrary.repositories.UserRepository;
-import com.appllication.teluslibrary.util.LoanMapper;
 import com.appllication.teluslibrary.util.LoanStatus;
 import com.appllication.teluslibrary.util.LoanType;
 
@@ -28,10 +30,18 @@ public class LoanService {
 	UserRepository userRepository;
 	@Autowired
 	BookRepository bookRepository;
+	@Autowired
+	ModelMapper mapper;
 	
-	public LoanDto createLoan(createLoanDto loanDto) {
-		User user = userRepository.findById(loanDto.getUserId()).get();
-		Book book = bookRepository.findById(loanDto.getBookId()).get();
+	
+    
+	public LoanDto createLoan(CreateLoanDto loanDto) {
+		User user = userRepository
+				.findById(loanDto.getUserId())
+				.orElseThrow(()-> new ResourceNotFoundException("User", "id", loanDto.getUserId().toString() ));
+		Book book = bookRepository
+				.findById(loanDto.getBookId())
+				.orElseThrow(()-> new ResourceNotFoundException("Book", "id", loanDto.getBookId().toString() ));
 		
 		if(checkLimits(user) && checkStock(book)) {
 			Loan loan = new Loan();
@@ -43,31 +53,33 @@ public class LoanService {
 			//updates book stock
 			book.setStock(book.getStock() - 1);
 			bookRepository.save(book);
-			
-			return LoanMapper.mapLoanToDto(loanRepository.save(loan));
+			return mapLoanToDto(loanRepository.save(loan));
 		}else {
-			System.out.println("holi");
-			return null;
+			throw new LibraryAPIException("User can't have more than 3 books or book stock is 0");
 		}
 		
 	}
 	
-	public LoanDto updateLoan(updateLoanDto loanDto) {
-		Loan loan = loanRepository.getById(loanDto.getLoanId());
-		switch (loanDto.getOperation()) {
+	public LoanDto updateLoan(UpdateLoanDto loanDto) {
+		Loan loan = loanRepository.findById(loanDto
+				.getLoanId())
+				.orElseThrow(()-> new ResourceNotFoundException("Loan", "id", loanDto.getLoanId().toString()));
+		switch (loanDto.getOperation().toLowerCase()) {
 		case "renew":
-			return LoanMapper.mapLoanToDto(renewBook(loan));
+			return mapLoanToDto(renewBook(loan));
 
 		case "return":
-			return LoanMapper.mapLoanToDto(returnBook(loan));
+			return mapLoanToDto(returnBook(loan));
 
 		default:
-			return LoanMapper.mapLoanToDto(loan);
+			throw new LibraryAPIException("Operation not recognized");
 		}
 	}
 
 	public LoanDto getLoan(Long id) {
-		return LoanMapper.mapLoanToDto(loanRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Loan", "id", id.toString())));
+		return mapLoanToDto(loanRepository
+				.findById(id)
+				.orElseThrow(()-> new ResourceNotFoundException("Loan", "id", id.toString())));
 	}
 	
 	public Float checkPenalties(Loan loan) {
@@ -108,5 +120,36 @@ public class LoanService {
 		return user.getLoans().stream().filter(el -> !el.getStatus()
 				.equals(LoanStatus.RETURNED.getValue()))
 				.collect(Collectors.toList()).size() < 3;
+	}
+	
+	public LoanDto mapLoanToDto(Loan loan) {  
+		LoanDto loanDto = mapper.map(loan, LoanDto.class);
+		loanDto.setId(loan.getCorrelative());
+		loanDto.setBookTitle(loan.getBook().getTitle());
+		loanDto.setPenalty(calculatePenalty(loan));
+		return loanDto;
+	}
+	
+	public Float calculatePenalty(Loan loan) {
+		if(loan.getStatus().equals(LoanStatus.RETURNED.getValue())) {
+			return 0F;
+		}else {
+			Integer days = LocalDate.now().getDayOfYear() - loan.getStartDate().getDayOfYear();
+			if(days <= 7) {
+				days = 0;
+				loan.setStatus(LoanStatus.ON_TIME.getValue());
+			}else {
+				days = days - 7;
+				loan.setStatus(LoanStatus.ON_DELAY.getValue());
+			}
+			return 0.2F * days;
+		}
+	}
+	
+	public Integer getActiveLoans(List<Loan> loans) {
+		return loans.stream()
+				.filter(el -> !el.getStatus()
+				.equals(LoanStatus.RETURNED.getValue()))
+				.collect(Collectors.toList()).size();
 	}
 }
