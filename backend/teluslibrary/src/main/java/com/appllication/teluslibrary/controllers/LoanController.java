@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.appllication.teluslibrary.entities.Loan;
 import com.appllication.teluslibrary.payload.LoanDto;
-import com.appllication.teluslibrary.payload.createLoanDto;
-import com.appllication.teluslibrary.payload.updateLoanDto;
+import com.appllication.teluslibrary.payload.CreateLoanDto;
+import com.appllication.teluslibrary.payload.UpdateLoanDto;
 import com.appllication.teluslibrary.services.LoanService;
 
 @RestController
@@ -25,11 +25,11 @@ public class LoanController {
 	LoanService ls;
 	
 	@PostMapping
-	public ResponseEntity<LoanDto> createLoan(@RequestBody createLoanDto loanDto) {
+	public ResponseEntity<LoanDto> createLoan(@RequestBody CreateLoanDto loanDto) {
 		return new ResponseEntity<>(ls.createLoan(loanDto), HttpStatus.CREATED);
 	}
 	@PutMapping
-	public ResponseEntity<LoanDto> updateLoan(@RequestBody updateLoanDto loanDto) {
+	public ResponseEntity<LoanDto> updateLoan(@RequestBody UpdateLoanDto loanDto) {
 		return new ResponseEntity<>(ls.updateLoan(loanDto), HttpStatus.OK);
 	}
 	@GetMapping("/{id}")

@@ -1,5 +1,6 @@
 package com.appllication.teluslibrary;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -21,5 +22,10 @@ public class TeluslibraryApplication {
 				registry.addMapping("/**").allowedOrigins("http://localhost:4500").allowedMethods("GET", "POST","PUT", "DELETE");
 			}
 		};
+	}
+	
+	@Bean 
+	public ModelMapper modelMapper() {
+		return new ModelMapper();
 	}
 }
