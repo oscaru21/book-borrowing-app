@@ -22,6 +22,7 @@ import com.appllication.teluslibrary.repositories.UserRepository;
 import com.appllication.teluslibrary.util.LoanStatus;
 import com.appllication.teluslibrary.util.LoanType;
 
+
 @Service
 public class LoanService {
 	@Autowired

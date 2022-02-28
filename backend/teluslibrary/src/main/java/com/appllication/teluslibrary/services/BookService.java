@@ -7,12 +7,17 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import com.appllication.teluslibrary.entities.Book;
 import com.appllication.teluslibrary.exceptions.ResourceNotFoundException;
 import com.appllication.teluslibrary.payload.CreateBookDto;
 import com.appllication.teluslibrary.payload.LoanDto;
 import com.appllication.teluslibrary.repositories.BookRepository;
 
+@Setter
+@Getter
 @Service
 public class BookService {
 	@Autowired
