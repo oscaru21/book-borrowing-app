@@ -1,3 +1,4 @@
+/*
 package com.appllication.teluslibrary;
 
 import static org.hamcrest.Matchers.containsString;
@@ -26,6 +27,10 @@ public class TeluslibraryApplicationTests {
 				.andExpect(content().string(containsString("Hello, World")));
 	}
 }
+*/
+
+
+
 
 /*
 package com.appllication.teluslibrary;
