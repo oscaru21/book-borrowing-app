@@ -2,6 +2,7 @@ package com.appllication.teluslibrary.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import lombok.Setter;
 
 import com.appllication.teluslibrary.entities.Book;
 import com.appllication.teluslibrary.exceptions.ResourceNotFoundException;
+import com.appllication.teluslibrary.payload.BookDto;
 import com.appllication.teluslibrary.payload.CreateBookDto;
 import com.appllication.teluslibrary.payload.LoanDto;
 import com.appllication.teluslibrary.repositories.BookRepository;
@@ -25,28 +27,38 @@ public class BookService {
 	@Autowired
 	ModelMapper mapper;
 	
-	public List<Book> getBook(){
-		return bookRepository.findAll();
+	public List<BookDto> getBook(){
+		List<Book> books = bookRepository.findAll();
+		return books.stream().map(t -> mapBookToDto(t)).collect(Collectors.toList());
 	}
 	
-	public Book getBook(Long id) {
-		return bookRepository
+	public BookDto getBook(Long id) {
+		return mapBookToDto(bookRepository
 				.findById(id)
-				.orElseThrow(()-> new ResourceNotFoundException("Book", "id", id.toString()));
+				.orElseThrow(()-> new ResourceNotFoundException("Book", "id", id.toString())));
 	}
-	public Book getBook(String title) {
-		return bookRepository
+	public BookDto getBook(String title) {
+		return mapBookToDto(bookRepository
 				.findByTitle(title)
-				.orElseThrow(()-> new ResourceNotFoundException("Book", "id", title));
+				.orElseThrow(()-> new ResourceNotFoundException("Book", "id", title)));
 	}
 	
-	public Book createBook(CreateBookDto bookDto) {
-		return bookRepository.save(mapToEntity(bookDto));
+	
+	public BookDto createBook(CreateBookDto bookDto) {
+		return mapBookToDto(bookRepository.save(mapToEntity(bookDto)));
 	}
-		
-	public Book mapToEntity(CreateBookDto bookDto) {
+	
+	
+	private Book mapToEntity(CreateBookDto bookDto) {
 		Book book = mapper.map(bookDto, Book.class);
 		return book;		
+	}
+	
+	private BookDto mapBookToDto(Book book) {
+		BookDto bookDto = mapper.map(book, BookDto.class);
+		bookDto.setBookTitle(book.getTitle());
+		bookDto.setStock(book.getStock());
+		return bookDto;
 	}
 	
 
