@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.appllication.teluslibrary.entities.Book;
+import com.appllication.teluslibrary.payload.BookDto;
 import com.appllication.teluslibrary.payload.CreateBookDto;
 import com.appllication.teluslibrary.services.BookService;
 
@@ -23,33 +24,32 @@ public class BookController {
 		BookService bs;
 		
 		//Get all books
-		@GetMapping("")
-		public List<Book>getAllBooks(){
+		@GetMapping
+		public List<BookDto> getBooks(){
 			return bs.getBook();
 		}
 		
 		//Create book
-		@PostMapping("")
-		public Book createBook(@RequestBody CreateBookDto bookDto) {
-			return bs.createBook(bookDto);
+		@PostMapping
+		public ResponseEntity<BookDto> createBook(@RequestBody CreateBookDto bookDto) {
+			//return new ResponseEntity<>(bs.createBook(bookDto), HttpStatus.CREATED);
+			return new ResponseEntity<>(bs.createBook(bookDto), HttpStatus.CREATED);
 		}
 		
 		//Get Book by Id
 		@GetMapping("/{id}")
-		public ResponseEntity<Book> getBook(@PathVariable Long id){
+		public ResponseEntity<BookDto> getBook(@PathVariable Long id){
 			try {
-				Book book = bs.getBook(id);
-				return new ResponseEntity<>(book, HttpStatus.OK);
+				return new ResponseEntity<>(bs.getBook(id), HttpStatus.OK);
 			}catch(Exception e) {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
 		}
 		//Get Book by Title
 		@GetMapping("/searchBy/{title}")
-		public ResponseEntity<Book> getBookByTitle(@PathVariable String title){
+		public ResponseEntity<BookDto> getBookByTitle(@PathVariable String title){
 			try {
-				Book book = bs.getBook(title);
-				return new ResponseEntity<>(book, HttpStatus.OK);
+				return new ResponseEntity<>(bs.getBook(title), HttpStatus.OK);
 			}catch (Exception e) {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
