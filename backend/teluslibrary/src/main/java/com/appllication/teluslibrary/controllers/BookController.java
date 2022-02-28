@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.appllication.teluslibrary.entities.Book;
-import com.appllication.teluslibrary.payload.createBookDto;
+import com.appllication.teluslibrary.payload.CreateBookDto;
 import com.appllication.teluslibrary.services.BookService;
 
 @RestController
@@ -30,7 +30,7 @@ public class BookController {
 		
 		//Create book
 		@PostMapping("")
-		public Book createBook(@RequestBody createBookDto bookDto) {
+		public Book createBook(@RequestBody CreateBookDto bookDto) {
 			return bs.createBook(bookDto);
 		}
 		

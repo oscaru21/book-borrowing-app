@@ -19,6 +19,14 @@ public class GlobalExceptionHandler {
 				webRequest.getDescription(false));
 		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
 	}
+	
+	@ExceptionHandler(LibraryAPIException.class)
+	public ResponseEntity<ErrorDetails> handleLibraryAPIException(LibraryAPIException exception,
+			WebRequest webRequest) {
+		ErrorDetails errorDetails = new ErrorDetails(new Date(), exception.getMessage(),
+				webRequest.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.BAD_REQUEST);
+	}
 
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorDetails> handleException(Exception exception, WebRequest webRequest) {

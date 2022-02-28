@@ -3,7 +3,7 @@ package com.appllication.teluslibrary.payload;
 import lombok.Data;
 
 @Data
-public class createLoanDto {
-	private Long bookId;
-	private Long userId;
+public class CreateBookDto {
+	private String title;
+	private Integer Stock;
 }
