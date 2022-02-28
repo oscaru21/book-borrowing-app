@@ -54,5 +54,4 @@ public class BookController {
 				return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 			}
 		}
-	
 }
