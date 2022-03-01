@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 @Data
 public class CreateBookDto {
+	public Long id;
 	public String title;
 	public Integer Stock;
 }

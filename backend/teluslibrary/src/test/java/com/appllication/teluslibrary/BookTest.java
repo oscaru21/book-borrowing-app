@@ -105,12 +105,13 @@ public class BookTest {
     void createBook(){
 
         Book book = new Book();
-        book.setId(151L);
-        book.setTitle("HolamundoTest");
+        book.setId(160L);
+        book.setTitle("HolamundoTesting");
         book.setStock(1);
 
         CreateBookDto tmp = new CreateBookDto();
-        tmp.title = "HolamundoTest";
+        tmp.id = 150L;
+        tmp.title = "HolamundoTesting";
         tmp.Stock = 1;
         
 
@@ -119,7 +120,7 @@ public class BookTest {
 
         BookDto tmp_book = bookController.createBook(tmp).getBody();
 
-        MatcherAssert.assertThat(tmp_book.title, equalTo("HolamundoTest"));
+        MatcherAssert.assertThat(tmp_book.title, equalTo("HolamundoTesting"));
     }
 
     //Lista de Todos los Libros
@@ -203,11 +204,11 @@ public class BookTest {
 	void save() {
 
         Book book = new Book();
-        book.setId(1L);
-        book.setTitle("TestBook");
+        book.setId(155L);
+        book.setTitle("CapaServicioBook");
         book.setStock(1);
 
 		Book tmp = bookRepository.save(book);
-		MatcherAssert.assertThat(tmp.getTitle(), equalTo("TestBook"));
+		MatcherAssert.assertThat(tmp.getTitle(), equalTo("CapaServicioBook"));
 	}
 }
