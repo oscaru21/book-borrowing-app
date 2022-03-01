@@ -66,7 +66,7 @@ public class BookTest {
 
         BookDto tmp_book = bookController.getBook(1L).getBody();
 
-        MatcherAssert.assertThat(tmp_book, equalTo(1L));
+        MatcherAssert.assertThat(tmp_book.id, equalTo(1L));
 	}
 
     //Get Book by Title
@@ -79,11 +79,11 @@ public class BookTest {
         book.setStock(1);
 
         BookService bookServiceMock = mock(BookService.class);
-        Mockito.when(bookServiceMock.getBook("Parasomnia")).thenReturn(book);
+        Mockito.when(bookServiceMock.getBook("Parasomnia")).thenReturn(bookService.mapBookToDto(book));
 
-        Book tmp_book = bookController.getBookByTitle("Parasomnia").getBody();
+        BookDto tmp_book = bookController.getBookByTitle("Parasomnia").getBody();
 
-        MatcherAssert.assertThat(tmp_book.getTitle(), equalTo("Parasomnia"));
+        MatcherAssert.assertThat(tmp_book.title, equalTo("Parasomnia"));
     }
 
     //Get all books
@@ -93,9 +93,9 @@ public class BookTest {
         List<Book> Catalog = bookRepository.findAll();
 
         BookService bookServiceMock = mock(BookService.class);
-        Mockito.when(bookServiceMock.getBook()).thenReturn(new ArrayList<Book>());
+        Mockito.when(bookServiceMock.getBook()).thenReturn(new ArrayList<BookDto>());
 
-        List<Book> tmp_book = bookController.getAllBooks();
+        List<BookDto> tmp_book = bookController.getBooks();
 
         MatcherAssert.assertThat(tmp_book.size(), equalTo(Catalog.size()));
 
@@ -106,15 +106,20 @@ public class BookTest {
     void createBook(){
 
         Book book = new Book();
-        book.setId(1L);
-        book.setTitle("TestBook");
+        book.setId(151L);
+        book.setTitle("HolamundoTest");
         book.setStock(1);
 
+        CreateBookDto tmp = new CreateBookDto();
+        tmp.title = "HolamundoTest";
+        tmp.Stock = 1;
+        
+
         BookService bookServiceMock = mock(BookService.class);
-        Mockito.when(bookServiceMock.createBook(book)).thenReturn(book);
+        Mockito.when(bookServiceMock.createBook(tmp)).thenReturn(bookService.mapBookToDto(book));
 
-        Book tmp_book = bookController.createBook(book).getBody();
+        BookDto tmp_book = bookController.createBook(tmp).getBody();
 
-        MatcherAssert.assertThat(tmp_book.getId(), equalTo(1L));
+        MatcherAssert.assertThat(tmp_book.title, equalTo("HolamundoTest"));
     }
 }
