@@ -54,8 +54,10 @@ public class BookService {
 		return book;		
 	}
 	
-	public BookDto mapBookToDto(Book book) {
+	public  BookDto mapBookToDto(Book book) {
 		BookDto bookDto = mapper.map(book, BookDto.class);
+		//bookDto.setBookTitle(book.getTitle());
+		//bookDto.setStock(book.getStock());
 		return bookDto;
 	}
 	
