@@ -4,7 +4,7 @@ package com.appllication.teluslibrary;
 import static org.hamcrest.Matchers.equalTo;
 import static org.mockito.Mockito.mock;
 
-import java.time.LocalDateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -17,7 +17,6 @@ import com.appllication.teluslibrary.repositories.BookRepository;
 import com.appllication.teluslibrary.services.BookService;
 
 import org.hamcrest.MatcherAssert;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -122,4 +121,93 @@ public class BookTest {
 
         MatcherAssert.assertThat(tmp_book.title, equalTo("HolamundoTest"));
     }
+
+    //Lista de Todos los Libros
+    @Test
+    void getBook_Service(){
+        List<Book> Catalog = bookRepository.findAll();
+
+        BookRepository bkrepo = mock(BookRepository.class);
+        Mockito.when(bkrepo.findAll()).thenReturn(Catalog);
+
+        List<BookDto> tmp_book = bookService.getBook();
+
+        MatcherAssert.assertThat(tmp_book.size(), equalTo(Catalog.size()));
+    }
+
+    //Obtener libro por ID
+    @Test 
+    void getBook_ID_Service(){
+        Book book = new Book();
+        book.setId(1L);
+        book.setTitle("TestBook");
+        book.setStock(1);
+
+        BookRepository bkrepo = mock(BookRepository.class);
+        Mockito.when(bkrepo.findById(1L)).thenReturn(Optional.of(book));
+
+        BookDto tmp_book = bookService.getBook(1L);
+
+        MatcherAssert.assertThat(tmp_book.id, equalTo(1L));
+    }
+
+    //Obtener libro por Titulo
+    @Test
+    void getBook_by_title_Service(){
+        Book book = new Book();
+        book.setId(1L);
+        book.setTitle("TestBook");
+        book.setStock(1);
+
+        BookRepository bkrepo = mock(BookRepository.class);
+        Mockito.when(bkrepo.findByTitle("TestBook")).thenReturn(Optional.of(book));
+
+        BookDto tmp_book = bookService.getBook("TestBook");
+
+        MatcherAssert.assertThat(tmp_book.title, equalTo("TestBook"));
+    }
+
+    //Crear Libro
+    @Test
+    void createBook_Service(){
+        Book book = new Book();
+        book.setId(151L);
+        book.setTitle("HolamundoTest");
+        book.setStock(1);
+
+        CreateBookDto tmp = new CreateBookDto();
+        tmp.title = "HolamundoTest";
+        tmp.Stock = 1;
+
+        BookRepository bkrepo = mock(BookRepository.class);
+        Mockito.when(bkrepo.save(book)).thenReturn(book);
+
+        BookDto tmp_book = bookService.createBook(tmp);
+
+        MatcherAssert.assertThat(tmp_book.title, equalTo("HolamundoTest"));
+    }
+
+    @Test
+	void findByID() {
+		Book book = bookRepository.findById(15L).get();
+		MatcherAssert.assertThat(book.getId(), equalTo(15L));
+	}
+
+    @Test
+	void findByTitle() {
+		Book book = bookRepository.findByTitle("The Walking death").get();
+		MatcherAssert.assertThat(book.getTitle(), equalTo("The Walking death"));
+	}
+
+    @Test
+	void save() {
+
+        Book book = new Book();
+        book.setId(1L);
+        book.setTitle("TestBook");
+        book.setStock(1);
+
+		Book tmp = bookRepository.save(book);
+		MatcherAssert.assertThat(tmp.getTitle(), equalTo("TestBook"));
+	}
 }
