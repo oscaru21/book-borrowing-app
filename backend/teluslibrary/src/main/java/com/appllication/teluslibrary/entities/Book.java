@@ -57,6 +57,7 @@ public class Book {
 		this.stock = stock;
 		this.loans = loans;
 	}
+	
 	@Id
 	@Column(nullable = false)
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -65,5 +66,7 @@ public class Book {
 	private Integer stock;
 	@OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER, mappedBy = "book")
 	private List<Loan> loans;
+	
+	
 
 }
