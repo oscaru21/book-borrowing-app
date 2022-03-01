@@ -11,7 +11,8 @@ import java.util.Optional;
 
 import com.appllication.teluslibrary.controllers.BookController;
 import com.appllication.teluslibrary.entities.Book;
-import com.appllication.teluslibrary.payload.createBookDto;
+import com.appllication.teluslibrary.payload.BookDto;
+import com.appllication.teluslibrary.payload.CreateBookDto;
 import com.appllication.teluslibrary.repositories.BookRepository;
 import com.appllication.teluslibrary.services.BookService;
 
@@ -61,11 +62,11 @@ public class BookTest {
         book.setStock(1);
 
         BookService bookServiceMock = mock(BookService.class);
-        Mockito.when(bookServiceMock.getBook(1L)).thenReturn(book);
+        Mockito.when(bookServiceMock.getBook(1L)).thenReturn(bookService.mapBookToDto(book));
 
-        Book tmp_book = bookController.getBook(1L).getBody();
+        BookDto tmp_book = bookController.getBook(1L).getBody();
 
-        MatcherAssert.assertThat(tmp_book.getId(), equalTo(1L));
+        MatcherAssert.assertThat(tmp_book, equalTo(1L));
 	}
 
     //Get Book by Title
