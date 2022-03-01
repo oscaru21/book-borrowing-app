@@ -49,12 +49,12 @@ public class BookService {
 	}
 	
 	
-	private Book mapToEntity(CreateBookDto bookDto) {
+	public Book mapToEntity(CreateBookDto bookDto) {
 		Book book = mapper.map(bookDto, Book.class);
 		return book;		
 	}
 	
-	private BookDto mapBookToDto(Book book) {
+	public BookDto mapBookToDto(Book book) {
 		BookDto bookDto = mapper.map(book, BookDto.class);
 		return bookDto;
 	}
