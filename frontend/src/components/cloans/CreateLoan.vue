@@ -1,10 +1,62 @@
 <template>
-  <v-container>
-    <v-card-title> Create Loan </v-card-title>
+  <v-container fluid class="text-wrap">
     <v-row>
-      <v-col cols="4">
+      <v-col md="3" xs="12" sm="12">
+        <!-- Card of the Book -->
+        <v-card height="auto" max-width="350px" class="pa-1">
+          <h2 class="text-wrap">Information of the Book to Lend</h2>
+          <v-container>
+            <v-form ref="formBook" v-model="validBook" lazy-validation>
+              <v-text-field
+                v-model="idBook"
+                :rules="idRules"
+                label="Insert a Book ID"
+                required
+              >
+              </v-text-field>
+              <v-container v-if="showB" class="pa-2">
+                <h3>Book Overview:</h3>
+                <v-divider></v-divider>
+                <div class="pa-1">
+                  <v-text-field
+                    disabled
+                    v-model="book.title"
+                    label="Title:"
+                  ></v-text-field>
+
+                  <v-text-field
+                    disabled
+                    v-model="book.stock"
+                    label="Stock:"
+                  ></v-text-field>
+                </div>
+              </v-container>
+              <v-row>
+                <v-col xs="12" sm="6">
+                  <v-btn
+                    :disabled="!validBook"
+                    color="primary"
+                    class="mr-2"
+                    @click="findBook"
+                  >
+                    Find Book
+                  </v-btn>
+                </v-col>
+                <v-col xs="12" sm="6">
+                  <v-btn color="gray" class="mr-2" @click="resetB"
+                    >Cancel
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-form>
+          </v-container>
+        </v-card>
+      </v-col>
+
+      <v-col md="6" xs="12" sm="12">
         <!-- Card of the User -->
         <v-card height="auto" width="auto" class="pa-1">
+          <h2 class="text-wrap">Information of the User Requesting the Loan</h2>
           <v-container>
             <v-form ref="formUser" v-model="validUser" lazy-validation>
               <v-text-field
@@ -13,27 +65,36 @@
                 label="Insert an User ID"
                 required
               ></v-text-field>
-              <v-container v-if="show" class="pa-8">
-                <h3>User Data:</h3>
-                <v-text-field
-                  disabled
-                  v-model="user.firstName"
-                  label="Last Name"
-                ></v-text-field>
+              <v-container v-if="show" class="pa-2">
+                <h3 class="text-wrap">User Overview:</h3>
+                <v-divider></v-divider>
+                <div class="pa-2">
+                  <v-text-field
+                    disabled
+                    v-model="user.firstName"
+                    label="Last Name"
+                  ></v-text-field>
 
-                <v-text-field
-                  disabled
-                  v-model="user.lastName"
-                  label="Last Name"
-                ></v-text-field>
+                  <v-text-field
+                    disabled
+                    v-model="user.lastName"
+                    label="Last Name"
+                  ></v-text-field>
 
-                <v-text-field
-                  disabled
-                  v-model="user.email"
-                  label="E-mail"
-                ></v-text-field>
-                <v-card width="500px" elevation="2" shaped tile class="pa-5">
-                  <h3 class="h2,Heading 3">User's Active Loans:</h3>
+                  <v-text-field
+                    disabled
+                    v-model="user.email"
+                    label="E-mail"
+                  ></v-text-field>
+                </div>
+                <v-card
+                  max-width="750px"
+                  elevation="2"
+                  shaped
+                  tile
+                  class="pa-2"
+                >
+                  <h4 class="h3,Heading 3">User's Active Loans:</h4>
                   <v-data-table
                     :headers="headers"
                     :items="loans"
@@ -52,78 +113,28 @@
                 Find User
               </v-btn>
 
-              <v-btn color="gray" class="mr-2" @click="cancel">Cancel </v-btn>
+              <v-btn color="gray" class="mr-2" @click="resetU">Cancel </v-btn>
             </v-form>
           </v-container>
         </v-card>
       </v-col>
-
-      <!-- <v-col v-if="show" cols="4">
-        <v-card width="auto" elevation="2" shaped tile class="pa-5">
-          <h3 class="h2,Heading 3">User's Active Loans:</h3>
-          <v-data-table
-            :headers="headers"
-            :items="loans"
-            loading-text="Loading... Please wait"
-            hide-default-footer
-          ></v-data-table> </v-card
-      ></v-col> -->
-
-      <v-col cols="3">
-        <!-- Card of the Book -->
-        <v-card height="auto" max-width="350px" class="pa-1">
-          <v-container>
-            <v-form ref="formBook" v-model="validBook" lazy-validation>
-              <v-text-field
-                v-model="idBook"
-                :rules="idRules"
-                label="Insert a Book ID"
-                required
-              ></v-text-field>
-              <v-container v-if="showB" class="pa-8">
-                <h3>Book Data:</h3>
-                <v-text-field
-                  disabled
-                  v-model="book.title"
-                  label="Title:"
-                ></v-text-field>
-
-                <v-text-field
-                  disabled
-                  v-model="book.stock"
-                  label="Stock:"
-                ></v-text-field>
-              </v-container>
-
-              <v-btn
-                :disabled="!validBook"
-                color="primary"
-                class="mr-2"
-                @click="findBook"
-              >
-                Find Book
-              </v-btn>
-
-              <v-btn color="gray" class="mr-2" @click="cancel">Cancel </v-btn>
-            </v-form>
-          </v-container>
+      <v-col md="3" xs="12" sm="12" v-if="show && showB">
+        <v-card height="auto" max-width="300px" class="pa-2">
+          <h2 class="text-wrap">Lend the Book</h2>
+          <v-card-action>
+            <v-row>
+              <v-col xs="12" sm="12" md="6">
+                <v-btn color="secondary" class="mr-2" @click="loanBook">
+                  Do Loan
+                </v-btn>
+              </v-col>
+              <v-col xs="12" sm="12" md="6">
+                <v-btn color="gray" class="mr-2" @click="cancel">Cancel </v-btn>
+              </v-col>
+            </v-row>
+          </v-card-action>
         </v-card>
-        <v-row
-          Loan
-          v-if="show && showB"
-          height="auto"
-          max-width="400px"
-          class="pa-8"
-        >
-          <v-btn color="secondary" class="mr-2" @click="loanBook">
-            Do Loan
-          </v-btn>
-        </v-row>
       </v-col>
-    </v-row>
-
-    <v-row>
-      <!-- Card of the botton  -->
     </v-row>
   </v-container>
 </template>
@@ -243,17 +254,17 @@ export default {
       this.resetB();
     },
     resetU() {
-      this.$refs.formUser.reset();
       this.user = [];
       this.idUser = "";
+      this.$refs.formUser.reset();
     },
     resetValidationU() {
       this.$refs.formUser.resetValidation();
     },
     resetB() {
-      this.$refs.formBook.reset();
       this.book = [];
       this.idBook = "";
+      this.$refs.formBook.reset();
     },
     resetValidation() {
       this.$refs.formBook.resetValidation();

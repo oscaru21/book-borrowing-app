@@ -39,15 +39,14 @@ const actions = {
       })
       .catch((err) => console.error(err));
   },
+  /*eslint-disable */
   async manageLoan({ commit }, loanOp) {
     await axios
       .put(`${URL}`, loanOp)
-      .then((res) => {
-        console.log(res.data);
-        console.log(commit);
-      })
+      .then((res) => {})
       .catch((err) => console.error(err));
   },
+  /*eslint-enable */
 };
 
 export default {
