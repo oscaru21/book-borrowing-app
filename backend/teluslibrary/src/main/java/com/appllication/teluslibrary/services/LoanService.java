@@ -117,10 +117,11 @@ public class LoanService {
 	}
 	
 	public LoanDto mapLoanToDto(Loan loan) {  
+		Float penalty = calculatePenalty(loan);
 		LoanDto loanDto = mapper.map(loan, LoanDto.class);
 		loanDto.setId(loan.getCorrelative());
 		loanDto.setBookTitle(loan.getBook().getTitle());
-		loanDto.setPenalty(calculatePenalty(loan));
+		loanDto.setPenalty(penalty);
 		return loanDto;
 	}
 	
