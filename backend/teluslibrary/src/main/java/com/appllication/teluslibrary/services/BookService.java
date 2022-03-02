@@ -2,49 +2,63 @@ package com.appllication.teluslibrary.services;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import com.appllication.teluslibrary.entities.Book;
-import com.appllication.teluslibrary.payload.createBookDto;
+import com.appllication.teluslibrary.exceptions.ResourceNotFoundException;
+import com.appllication.teluslibrary.payload.BookDto;
+import com.appllication.teluslibrary.payload.CreateBookDto;
+import com.appllication.teluslibrary.payload.LoanDto;
 import com.appllication.teluslibrary.repositories.BookRepository;
 
+@Setter
+@Getter
 @Service
 public class BookService {
 	@Autowired
 	BookRepository bookRepository;
+	@Autowired
+	ModelMapper mapper;
 	
-	public List<Book> getBook(){
-		return bookRepository.findAll();
-	}
-	
-	public Book getBook(Long id) {
-		Optional<Book> findById = bookRepository.findById(id);
-		if(findById.isPresent()) {
-			return findById.get();
-		}else {
-			return findById.orElseThrow();
-		}
-	}
-	public Book getBook(String title) {
-		Optional<Book> findByTitle = Optional.of(bookRepository.findByTitle(title));
-		if(findByTitle.isPresent()) {
-			return findByTitle.get();
-		}else {
-			return findByTitle.orElseThrow();
-		}
+	public List<BookDto> getBook(){
+		List<Book> books = bookRepository.findAll();
+		return books.stream().map(t -> mapBookToDto(t)).collect(Collectors.toList());
 	}
 	
-	public Book createBook(createBookDto bookDto) {
-		return bookRepository.save(mapToEntity(bookDto));
+	public BookDto getBook(Long id) {
+		return mapBookToDto(bookRepository
+				.findById(id)
+				.orElseThrow(()-> new ResourceNotFoundException("Book", "id", id.toString())));
 	}
-		
-	public Book mapToEntity(createBookDto bookDto) {
-		Book book = new Book();
-		book.setTitle(bookDto.getTitle());
-		book.setStock(bookDto.getStock());
+	public BookDto getBook(String title) {
+		return mapBookToDto(bookRepository
+				.findByTitle(title)
+				.orElseThrow(()-> new ResourceNotFoundException("Book", "id", title)));
+	}
+	
+	
+	public BookDto createBook(CreateBookDto bookDto) {
+		return mapBookToDto(bookRepository.save(mapToEntity(bookDto)));
+	}
+	
+	
+	public Book mapToEntity(CreateBookDto bookDto) {
+		Book book = mapper.map(bookDto, Book.class);
 		return book;		
+	}
+	
+	public  BookDto mapBookToDto(Book book) {
+		BookDto bookDto = mapper.map(book, BookDto.class);
+		//bookDto.setBookTitle(book.getTitle());
+		//bookDto.setStock(book.getStock());
+		return bookDto;
 	}
 	
 
