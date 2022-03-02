@@ -90,27 +90,20 @@ public class LoanService {
 	
 	private Loan returnBook(Loan loan) {		
 		Book book = loan.getBook();
-		if(checkPenalties(loan) == 0){
-			//updates book stock
-			book.setStock(book.getStock() + 1);
-			bookRepository.save(book);
-			loan.setStatus(LoanStatus.RETURNED.getValue());
-			return loanRepository.save(loan);
-		}else {
-			return loan;
-		}
+		//updates book stock
+		book.setStock(book.getStock() + 1);
+		bookRepository.save(book);
+		loan.setStatus(LoanStatus.RETURNED.getValue());
+		return loanRepository.save(loan);
 	}
 	
 	private Loan renewBook(Loan loan) {
 		
-		if(checkPenalties(loan) == 0){
-			loan.setStartDate(LocalDate.now());
-			loan.setStatus(LoanStatus.ON_TIME.getValue());
-			loan.setType(LoanType.RENEWAL.getValue());
-			return loanRepository.save(loan);
-		}else {
-			return loan;
-		}
+		loan.setStartDate(LocalDate.now());
+		loan.setStatus(LoanStatus.ON_TIME.getValue());
+		loan.setType(LoanType.RENEWAL.getValue());
+		return loanRepository.save(loan);
+		
 	}
 	
 	private Boolean checkStock(Book book) {
