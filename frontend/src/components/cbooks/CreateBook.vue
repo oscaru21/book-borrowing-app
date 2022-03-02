@@ -23,7 +23,7 @@
         required
       ></v-text-field>
 
-      <v-btn :disabled="!valid" color="success" class="mr-4" @click="submit">
+      <v-btn :disabled="!valid" color="primary" class="mr-4" @click="submit">
         Save
       </v-btn>
       <v-btn color="gray" class="mr-2" @click="reset">Cancel </v-btn>
