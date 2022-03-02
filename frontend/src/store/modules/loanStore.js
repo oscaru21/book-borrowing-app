@@ -35,8 +35,16 @@ const actions = {
     await axios
       .post(`${URL}`, loan)
       .then((res) => {
-        console.log(res.data);
         commit("POST_LOAN", res.data);
+      })
+      .catch((err) => console.error(err));
+  },
+  async manageLoan({ commit }, loanOp) {
+    await axios
+      .put(`${URL}`, loanOp)
+      .then((res) => {
+        console.log(res.data);
+        console.log(commit);
       })
       .catch((err) => console.error(err));
   },

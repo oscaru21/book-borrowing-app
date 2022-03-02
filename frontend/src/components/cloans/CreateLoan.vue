@@ -197,8 +197,8 @@ export default {
         bookId: this.book.id,
         userId: this.user.id,
       };
-
-      if (this.loans.length < 4) {
+      console.log(parseInt(this.user.activeLoans));
+      if (parseInt(this.user.activeLoans) < 3) {
         this.createLoan(body);
         this.$toast.success("Success: Loan was registered", {
           position: "top-right",
@@ -214,6 +214,8 @@ export default {
           icon: true,
           rtl: false,
         });
+        this.resetU();
+        this.resetB();
       } else {
         this.$toast.error(
           "ERROR: Please validate that user had not more than 3 active loans",
@@ -232,24 +234,26 @@ export default {
             rtl: false,
           }
         );
+        this.resetU();
+        this.resetB();
       }
     },
     cancel() {
       this.resetU();
       this.resetB();
-      this.idUser = "";
-      this.idBook = "";
-      this.user = [];
-      this.book = [];
     },
     resetU() {
       this.$refs.formUser.reset();
+      this.user = [];
+      this.idUser = "";
     },
     resetValidationU() {
       this.$refs.formUser.resetValidation();
     },
     resetB() {
       this.$refs.formBook.reset();
+      this.book = [];
+      this.idBook = "";
     },
     resetValidation() {
       this.$refs.formBook.resetValidation();

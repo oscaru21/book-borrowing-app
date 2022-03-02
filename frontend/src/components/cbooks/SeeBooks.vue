@@ -14,7 +14,7 @@
       item-key="name"
       class="elevation-1"
       loading
-      loading-text="Loading... Please wait"
+      loading-text="Loading data... Please wait"
     ></v-data-table>
     <v-data-table
       v-else

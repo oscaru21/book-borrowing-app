@@ -5,14 +5,16 @@
         <create-loan />
       </v-col>
     </v-row>
+    <update-loan />
   </v-container>
 </template>
 
 <script>
 import CreateLoan from "@/components/cloans/CreateLoan.vue";
+import UpdateLoan from "@/components/cloans/UpdateLoan.vue";
 
 export default {
-  components: { CreateLoan },
+  components: { CreateLoan, UpdateLoan },
   name: "LoansView",
   data: () => ({}),
   method: {},
