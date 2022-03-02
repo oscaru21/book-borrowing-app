@@ -116,17 +116,18 @@
                 </v-data-table>
               </v-card>
             </v-container>
+            <v-card-actions>
+              <v-btn
+                :disabled="!validUser"
+                color="primary"
+                class="mr-2"
+                @click="findUser"
+              >
+                Find User
+              </v-btn>
 
-            <v-btn
-              :disabled="!validUser"
-              color="primary"
-              class="mr-2"
-              @click="findUser"
-            >
-              Find User
-            </v-btn>
-
-            <v-btn color="gray" class="mr-2" @click="cancel">Cancel </v-btn>
+              <v-btn color="gray" class="mr-2" @click="cancel">Cancel </v-btn>
+            </v-card-actions>
           </v-form>
         </v-container>
       </v-card>

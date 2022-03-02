@@ -1,18 +1,26 @@
 <template>
-  <v-container class="pa-8">
-    <v-card class="pa-8" width="auto">
-      <v-card-title>Users management</v-card-title>
-      <v-row>
-        <v-col cols="4">
-          <create-user />
-        </v-col>
-        <v-col cols="4">
-          <delete-user />
-        </v-col>
-        <v-col cols="4"></v-col>
-      </v-row>
-    </v-card>
-    <see-users />
+  <v-container class="pa-1">
+    <v-tabs color="deep-purple accent-4" show-arrows>
+      <v-tab>Available Users</v-tab>
+      <v-tab>Manage an User</v-tab>
+      <v-tab-item>
+        <v-container class="pa-1">
+          <see-users />
+        </v-container>
+      </v-tab-item>
+      <v-tab-item>
+        <v-container class="pa-1">
+          <v-row>
+            <v-col>
+              <create-user />
+            </v-col>
+            <v-col>
+              <delete-user />
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-tab-item>
+    </v-tabs>
   </v-container>
 </template>
 

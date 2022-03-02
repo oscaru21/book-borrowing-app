@@ -1,13 +1,19 @@
 <template>
-  <v-container class="pa-8">
-    <v-row>
-      <v-col xs="12" sm="12" cols="3">
-        <create-book />
-      </v-col>
-      <v-col xs="12" sm="12" cols="9">
-        <see-books />
-      </v-col>
-    </v-row>
+  <v-container class="pa-1">
+    <v-tabs color="deep-purple accent-4" show-arrows>
+      <v-tab>Available Books</v-tab>
+      <v-tab>Manage Books</v-tab>
+      <v-tab-item>
+        <v-container class="pa-1">
+          <see-books />
+        </v-container>
+      </v-tab-item>
+      <v-tab-item>
+        <v-container class="pa-1">
+          <create-book />
+        </v-container>
+      </v-tab-item>
+    </v-tabs>
   </v-container>
 </template>
 

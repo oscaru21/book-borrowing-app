@@ -30,8 +30,8 @@
         required
       ></v-text-field>
       <v-card-actions>
-        <v-btn :disabled="!valid" color="success" class="mr-4" @click="submit">
-          Submit
+        <v-btn :disabled="!valid" color="primary" class="mr-4" @click="submit">
+          Save
         </v-btn>
         <v-btn color="gray" class="mr-4" @click="reset">Cancel </v-btn>
       </v-card-actions>

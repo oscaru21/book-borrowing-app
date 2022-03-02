@@ -6,9 +6,9 @@
     outlined
     shaped
     tile
-    class="pa-8"
+    class="pa-3"
   >
-    <v-card-title> Delete an User </v-card-title>
+    <h2 class="text-wrap">Delete an User</h2>
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field
         v-model="id"
@@ -17,23 +17,27 @@
         required
       ></v-text-field>
       <v-container v-if="show" class="pa-8">
-        <v-card-title>User data:</v-card-title>
-        <v-text-field
-          disabled
-          v-model="user.firstName"
-          label="Name"
-        ></v-text-field>
-        <v-text-field
-          disabled
-          v-model="user.lastName"
-          label="Last Name"
-        ></v-text-field>
+        <h3 class="text-wrap">User Overview:</h3>
+        <v-divider></v-divider>
+        <v-spacer></v-spacer>
+        <div class="pa-1">
+          <v-text-field
+            disabled
+            v-model="user.firstName"
+            label="Name"
+          ></v-text-field>
+          <v-text-field
+            disabled
+            v-model="user.lastName"
+            label="Last Name"
+          ></v-text-field>
 
-        <v-text-field
-          disabled
-          v-model="user.email"
-          label="E-mail"
-        ></v-text-field>
+          <v-text-field
+            disabled
+            v-model="user.email"
+            label="E-mail"
+          ></v-text-field>
+        </div>
       </v-container>
     </v-form>
     <v-card-actions>

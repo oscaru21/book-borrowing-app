@@ -1,16 +1,18 @@
 <template>
-  <v-container class="pa-8">
+  <v-container class="pa-1">
     <v-tabs color="deep-purple accent-4" show-arrows>
       <v-tab>Lend a Book</v-tab>
       <v-tab>Manage Loans</v-tab>
       <v-tab-item>
-        <v-container class="pa-8">
+        <v-container class="pa-1">
           <create-loan />
         </v-container>
       </v-tab-item>
       <v-tab-item>
-        <v-container class="pa-8"> <update-loan /></v-container
-      ></v-tab-item>
+        <v-container class="pa-1">
+          <update-loan />
+        </v-container>
+      </v-tab-item>
     </v-tabs>
   </v-container>
 </template>

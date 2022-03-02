@@ -24,8 +24,9 @@
       ></v-text-field>
 
       <v-btn :disabled="!valid" color="success" class="mr-4" @click="submit">
-        Validate
+        Save
       </v-btn>
+      <v-btn color="gray" class="mr-2" @click="reset">Cancel </v-btn>
     </v-form>
   </v-card>
 </template>
@@ -54,7 +55,6 @@ export default {
         title: this.title,
         stock: this.stock,
       };
-      console.log(JSON.stringify(this.book));
       this.createBook(this.book);
       this.reset();
     },

@@ -31,23 +31,18 @@
                   ></v-text-field>
                 </div>
               </v-container>
-              <v-row>
-                <v-col xs="12" sm="6">
-                  <v-btn
-                    :disabled="!validBook"
-                    color="primary"
-                    class="mr-2"
-                    @click="findBook"
-                  >
-                    Find Book
-                  </v-btn>
-                </v-col>
-                <v-col xs="12" sm="6">
-                  <v-btn color="gray" class="mr-2" @click="resetB"
-                    >Cancel
-                  </v-btn>
-                </v-col>
-              </v-row>
+              <v-card-actions>
+                <v-btn
+                  :disabled="!validBook"
+                  color="primary"
+                  class="mr-2"
+                  @click="findBook"
+                >
+                  Find Book
+                </v-btn>
+
+                <v-btn color="gray" class="mr-2" @click="resetB">Cancel </v-btn>
+              </v-card-actions>
             </v-form>
           </v-container>
         </v-card>
@@ -103,17 +98,18 @@
                   ></v-data-table>
                 </v-card>
               </v-container>
+              <v-card-actions>
+                <v-btn
+                  :disabled="!validUser"
+                  color="primary"
+                  class="mr-2"
+                  @click="findUser"
+                >
+                  Find User
+                </v-btn>
 
-              <v-btn
-                :disabled="!validUser"
-                color="primary"
-                class="mr-2"
-                @click="findUser"
-              >
-                Find User
-              </v-btn>
-
-              <v-btn color="gray" class="mr-2" @click="resetU">Cancel </v-btn>
+                <v-btn color="gray" class="mr-2" @click="resetU">Cancel </v-btn>
+              </v-card-actions>
             </v-form>
           </v-container>
         </v-card>
@@ -121,18 +117,13 @@
       <v-col md="3" xs="12" sm="12" v-if="show && showB">
         <v-card height="auto" max-width="300px" class="pa-2">
           <h2 class="text-wrap">Lend the Book</h2>
-          <v-card-action>
-            <v-row>
-              <v-col xs="12" sm="12" md="6">
-                <v-btn color="secondary" class="mr-2" @click="loanBook">
-                  Do Loan
-                </v-btn>
-              </v-col>
-              <v-col xs="12" sm="12" md="6">
-                <v-btn color="gray" class="mr-2" @click="cancel">Cancel </v-btn>
-              </v-col>
-            </v-row>
-          </v-card-action>
+          <v-card-actions>
+            <v-btn color="secondary" class="mr-2" @click="loanBook">
+              Do Loan
+            </v-btn>
+
+            <v-btn color="gray" class="mr-2" @click="cancel">Cancel </v-btn>
+          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
