@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "http://localhost:8080/loans";
+const URL = "http://35.184.94.64:8080/loans";
 
 const state = {
   loans: [],

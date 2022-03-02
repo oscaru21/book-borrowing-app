@@ -10,7 +10,7 @@
             required
           ></v-text-field>
           <!-- v-if="show" -->
-          <v-container v-if="true" class="pa-8">
+          <v-container v-if="show" class="pa-8">
             <h3>User Data:</h3>
             <v-text-field
               disabled
@@ -79,18 +79,17 @@
                         </v-card-text>
                         <v-card-actions class="justify-end">
                           <v-btn
-                            v-if="parseFloat(item.penalty) > 0"
                             color="primary"
                             class="mr-2"
-                            @click="returnL(item.id)"
+                            @click="dialog.value = returnL(item.id)"
                           >
                             Return
                           </v-btn>
                           <v-btn
-                            v-else
+                            v-if="parseFloat(item.penalty) == 0"
                             color="primary"
                             class="mr-2"
-                            @click="renewL(item.id)"
+                            @click="dialog.value = renewL(item.id)"
                           >
                             Renew
                           </v-btn>
@@ -191,7 +190,22 @@ export default {
       this.manageLoan(bodytu);
       this.cancel();
       this.loadUsers();
-      // this.$refs.dialog.value = false;
+      this.$toast.success("Success", {
+        position: "top-right",
+        timeout: 2000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: false,
+        draggable: true,
+        draggablePercent: 1,
+        showCloseButtonOnHover: true,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false,
+      });
+
+      return false;
     },
     renewL(idd) {
       const bodyre = {
@@ -201,6 +215,21 @@ export default {
       this.manageLoan(bodyre);
       this.cancel();
       this.loadUsers();
+      this.$toast.success("Success", {
+        position: "top-right",
+        timeout: 2000,
+        closeOnClick: true,
+        pauseOnFocusLoss: true,
+        pauseOnHover: false,
+        draggable: true,
+        draggablePercent: 1,
+        showCloseButtonOnHover: true,
+        hideProgressBar: true,
+        closeButton: "button",
+        icon: true,
+        rtl: false,
+      });
+      return false;
     },
     cancel() {
       this.resetU();
