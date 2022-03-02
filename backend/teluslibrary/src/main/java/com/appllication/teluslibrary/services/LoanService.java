@@ -31,12 +31,8 @@ public class LoanService {
 	UserRepository userRepository;
 	@Autowired
 	BookRepository bookRepository;
-	@Autowired
-	ModelMapper mapper;
 	
-	
-    
-	public LoanDto createLoan(CreateLoanDto loanDto) {
+	public Loan createLoan(CreateLoanDto loanDto) {
 		User user = userRepository
 				.findById(loanDto.getUserId())
 				.orElseThrow(()-> new ResourceNotFoundException("User", "id", loanDto.getUserId().toString() ));
@@ -54,38 +50,37 @@ public class LoanService {
 			//updates book stock
 			book.setStock(book.getStock() - 1);
 			bookRepository.save(book);
-			return mapLoanToDto(loanRepository.save(loan));
+			return loanRepository.save(loan);
+		}else if(!checkLimits(user) && !checkStock(book)){
+			throw new LibraryAPIException("Book is unavailable in stock and user has more than 3 books");
+		}else if(!checkStock(book)) {
+			throw new LibraryAPIException("Book is unavailable in stock");
 		}else {
-			throw new LibraryAPIException("User can't have more than 3 books or book stock is 0");
+			throw new LibraryAPIException("User can't have more than 3 books");
 		}
 		
 	}
 	
-	public LoanDto updateLoan(UpdateLoanDto loanDto) {
+	public Loan updateLoan(UpdateLoanDto loanDto) {
 		Loan loan = loanRepository.findById(loanDto
 				.getLoanId())
 				.orElseThrow(()-> new ResourceNotFoundException("Loan", "id", loanDto.getLoanId().toString()));
 		switch (loanDto.getOperation().toLowerCase()) {
 		case "renew":
-			return mapLoanToDto(renewBook(loan));
+			return renewBook(loan);
 
 		case "return":
-			return mapLoanToDto(returnBook(loan));
+			return returnBook(loan);
 
 		default:
 			throw new LibraryAPIException("Operation not recognized");
 		}
 	}
 
-	public LoanDto getLoan(Long id) {
-		return mapLoanToDto(loanRepository
+	public Loan getLoan(Long id) {
+		return loanRepository
 				.findById(id)
-				.orElseThrow(()-> new ResourceNotFoundException("Loan", "id", id.toString())));
-	}
-	
-	public Float checkPenalties(Loan loan) {
-		Integer days = LocalDate.now().getDayOfYear() - loan.getStartDate().getDayOfYear();
-		return 0.2F * days;
+				.orElseThrow(()-> new ResourceNotFoundException("Loan", "id", id.toString()));
 	}
 	
 	private Loan returnBook(Loan loan) {		
@@ -114,37 +109,5 @@ public class LoanService {
 		return user.getLoans().stream().filter(el -> !el.getStatus()
 				.equals(LoanStatus.RETURNED.getValue()))
 				.collect(Collectors.toList()).size() < 3;
-	}
-	
-	public LoanDto mapLoanToDto(Loan loan) {  
-		Float penalty = calculatePenalty(loan);
-		LoanDto loanDto = mapper.map(loan, LoanDto.class);
-		loanDto.setId(loan.getCorrelative());
-		loanDto.setBookTitle(loan.getBook().getTitle());
-		loanDto.setPenalty(penalty);
-		return loanDto;
-	}
-	
-	public Float calculatePenalty(Loan loan) {
-		if(loan.getStatus().equals(LoanStatus.RETURNED.getValue())) {
-			return 0F;
-		}else {
-			Integer days = LocalDate.now().getDayOfYear() - loan.getStartDate().getDayOfYear();
-			if(days <= 7) {
-				days = 0;
-				loan.setStatus(LoanStatus.ON_TIME.getValue());
-			}else {
-				days = days - 7;
-				loan.setStatus(LoanStatus.ON_DELAY.getValue());
-			}
-			return 0.2F * days;
-		}
-	}
-	
-	public Integer getActiveLoans(List<Loan> loans) {
-		return loans.stream()
-				.filter(el -> !el.getStatus()
-				.equals(LoanStatus.RETURNED.getValue()))
-				.collect(Collectors.toList()).size();
 	}
 }

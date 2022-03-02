@@ -10,12 +10,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.appllication.teluslibrary.entities.Loan;
 import com.appllication.teluslibrary.entities.User;
 import com.appllication.teluslibrary.exceptions.ResourceNotFoundException;
 import com.appllication.teluslibrary.payload.CreateUserDto;
 import com.appllication.teluslibrary.payload.LoanDto;
 import com.appllication.teluslibrary.payload.UserDto;
 import com.appllication.teluslibrary.repositories.UserRepository;
+import com.appllication.teluslibrary.util.LoanStatus;
 @Service
 public class UserService {
 	@Autowired
@@ -60,14 +62,17 @@ public class UserService {
 	private UserDto mapUserToDto(User user) {
 		UserDto userDto = mapper.map(user, UserDto.class);
 		if(user.getLoans() != null) {
-			userDto.setActiveLoans(loanService.getActiveLoans(user.getLoans()));
-			userDto.setLoans(user.getLoans().stream()
-					.map(loan -> loanService.mapLoanToDto(loan))
-					.collect(Collectors.toList()));
+			userDto.setActiveLoans(getActiveLoans(user.getLoans()));
 		}else {
 			userDto.setActiveLoans(0);
 		}
 		return userDto;
 	}
 	
+	private Integer getActiveLoans(List<Loan> loans) {
+		return loans.stream()
+				.filter(loan -> !loan.getStatus()
+				.equals(LoanStatus.RETURNED.getValue()))
+				.collect(Collectors.toList()).size();
+	}
 }
