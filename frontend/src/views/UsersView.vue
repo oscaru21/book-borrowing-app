@@ -31,6 +31,7 @@ import DeleteUser from "@/components/cusers/DeleteUser.vue";
 export default {
   components: { SeeUsers, CreateUser, DeleteUser },
   name: "UsersView",
+  title: "Users",
   data: () => ({
     books: [],
   }),

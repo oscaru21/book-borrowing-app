@@ -14,7 +14,7 @@
     </v-app-bar>
     <principal-menu />
     <v-main>
-      <router-view />
+      <router-view :key="$route.path" />
     </v-main>
     <v-footer app color="#191f45" dark>
       <v-card

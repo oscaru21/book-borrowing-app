@@ -23,7 +23,7 @@ import SeeBooks from "@/components/cbooks/SeeBooks.vue";
 export default {
   components: { CreateBook, SeeBooks },
   name: "BooksView",
-
+  title: "Books",
   data: () => ({
     books: [],
   }),

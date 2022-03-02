@@ -24,6 +24,7 @@ import UpdateLoan from "@/components/cloans/UpdateLoan.vue";
 export default {
   components: { CreateLoan, UpdateLoan },
   name: "LoansView",
+  title: "Home",
   data: () => ({}),
   method: {},
   computed: {},
