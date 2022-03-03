@@ -51,11 +51,13 @@ public class LoanController {
 	}
 	
 	public void changeStatus(Loan loan) {
-		Integer days = LocalDate.now().getDayOfYear() - loan.getStartDate().getDayOfYear();
-		if(days <= 7) {
-			loan.setStatus(LoanStatus.ON_TIME.getValue());
-		}else {
-			loan.setStatus(LoanStatus.ON_DELAY.getValue());
-		}	
+		if (!loan.getStatus().equals("returned")) {
+			Integer days = LocalDate.now().getDayOfYear() - loan.getStartDate().getDayOfYear();
+			if(days <= 7) {
+				loan.setStatus(LoanStatus.ON_TIME.getValue());
+			}else {
+				loan.setStatus(LoanStatus.ON_DELAY.getValue());
+			}	
+		}
 	}
 }
