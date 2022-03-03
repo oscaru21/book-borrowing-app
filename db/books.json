@@ -1,602 +1,802 @@
 [
   {
-    "title": "Canyon Passage",
-    "stock": 9
-  },
-  {
-    "title": "Sleepover",
-    "stock": 20
-  },
-  {
-    "title": "Salvador",
-    "stock": 3
-  },
-  {
-    "title": "Dona Flor and Her Two Husbands",
-    "stock": 14
-  },
-  {
-    "title": "Two Thousand Maniacs!",
-    "stock": 7
-  },
-  {
-    "title": "Tickle in the Heart, A",
-    "stock": 6
-  },
-  {
-    "title": "Hilton!",
-    "stock": 4
-  },
-  {
-    "title": "L.627",
-    "stock": 5
-  },
-  {
-    "title": "Running With Scissors",
-    "stock": 7
-  },
-  {
-    "title": "Marva Collins Story, The",
-    "stock": 10
-  },
-  {
-    "title": "Hannah Free",
-    "stock": 15
-  },
-  {
-    "title": "Scarecrow, The",
-    "stock": 8
-  },
-  {
-    "title": "A Good Lawyers Wife",
-    "stock": 10
-  },
-  {
-    "title": "Dhobi Ghat",
-    "stock": 17
-  },
-  {
-    "title": "Lee Destinees",
-    "stock": 3
-  },
-  {
-    "title": "Fubar II: Balls to the Wall",
-    "stock": 18
-  },
-  {
-    "title": "Evil Dead, The",
-    "stock": 19
-  },
-  {
-    "title": "City of Angels",
-    "stock": 17
-  },
-  {
-    "title": "Things Change",
-    "stock": 18
-  },
-  {
-    "title": "Young Guns",
-    "stock": 10
-  },
-  {
-    "title": "W.R.: Mysteries of the Organism",
-    "stock": 14
-  },
-  {
-    "title": "John Carter",
-    "stock": 19
-  },
-  {
-    "title": "Morning Glory",
-    "stock": 18
-  },
-  {
-    "title": "Shadows of Liberty ",
-    "stock": 20
-  },
-  {
-    "title": "Babylon 5: In the Beginning",
-    "stock": 3
-  },
-  {
-    "title": "How to Make an American Quilt",
-    "stock": 4
-  },
-  {
-    "title": "Failure to Launch",
-    "stock": 9
-  },
-  {
-    "title": "Boulevard",
-    "stock": 6
-  },
-  {
-    "title": "Escape to Athena",
-    "stock": 14
-  },
-  {
-    "title": "Roaring Twenties, The",
-    "stock": 4
-  },
-  {
-    "title": "Night the Lights Went Out in Georgia, The",
-    "stock": 13
-  },
-  {
-    "title": "Parasomnia",
-    "stock": 3
-  },
-  {
-    "title": "Jungle Book, The",
-    "stock": 9
-  },
-  {
-    "title": "Darling Lili",
-    "stock": 19
-  },
-  {
-    "title": "Paths of Glory",
-    "stock": 6
-  },
-  {
-    "title": "Joyriders, The",
-    "stock": 20
-  },
-  {
-    "title": "Keys of the Kingdom, The",
-    "stock": 12
-  },
-  {
-    "title": "Of Human Bondage",
-    "stock": 18
-  },
-  {
-    "title": "Bye Bye Braverman",
-    "stock": 13
-  },
-  {
-    "title": "The Adventures of André and Wally B.",
-    "stock": 10
-  },
-  {
-    "title": "Rough Magic",
-    "stock": 19
-  },
-  {
-    "title": "Never a Dull Moment",
-    "stock": 9
-  },
-  {
-    "title": "Katt Williams: Priceless: Afterlife",
-    "stock": 3
-  },
-  {
-    "title": "Time Walker Being From Another Planet",
-    "stock": 20
-  },
-  {
-    "title": "Wild Bill",
-    "stock": 19
-  },
-  {
-    "title": "Dad",
-    "stock": 19
-  },
-  {
-    "title": "Howling V: The Rebirth",
-    "stock": 20
-  },
-  {
-    "title": "District 13",
+    "title": "Last Days",
     "stock": 16
   },
   {
-    "title": "Otis",
-    "stock": 1
+    "title": "Drive Me Crazy",
+    "stock": 5
   },
   {
-    "title": "The Face Behind the Mask",
+    "title": "Silent Scream, The",
+    "stock": 14
+  },
+  {
+    "title": "Always Outnumbered",
+    "stock": 17
+  },
+  {
+    "title": "Setup (Set Up)",
     "stock": 4
   },
   {
-    "title": "Sundays and Cybele",
-    "stock": 3
+    "title": "Daltry Calhoun",
+    "stock": 17
   },
   {
-    "title": "Two Men Went to War",
-    "stock": 9
-  },
-  {
-    "title": "Smitty",
-    "stock": 12
-  },
-  {
-    "title": "Slumber Party Massacre, The",
+    "title": "Bait",
     "stock": 4
   },
   {
-    "title": "Man of the Century",
-    "stock": 15
-  },
-  {
-    "title": "Paperhouse",
-    "stock": 11
-  },
-  {
-    "title": "Hexed",
+    "title": "Final Cut",
     "stock": 7
   },
   {
-    "title": "Banklady",
-    "stock": 7
-  },
-  {
-    "title": "Dead Hate the Living!, The",
-    "stock": 11
-  },
-  {
-    "title": "Citizen Dog",
-    "stock": 7
-  },
-  {
-    "title": "C.H.O.M.P.S.",
-    "stock": 9
-  },
-  {
-    "title": "Brothers Kiss, A",
-    "stock": 15
-  },
-  {
-    "title": "Night at the Museum: Secret of the Tomb",
-    "stock": 9
-  },
-  {
-    "title": "Letter, The",
+    "title": "Southbounders",
     "stock": 6
   },
   {
-    "title": "Babymakers, The",
-    "stock": 17
+    "title": "Hysterical Blindness",
+    "stock": 7
   },
   {
-    "title": "House Arrest",
-    "stock": 18
-  },
-  {
-    "title": "Run, Man, Run!",
-    "stock": 18
-  },
-  {
-    "title": "Dead of the Nite",
-    "stock": 12
-  },
-  {
-    "title": "Simpsons Movie, The",
+    "title": "Mackennas Gold",
     "stock": 16
   },
   {
-    "title": "DEFCON: The Documentary",
+    "title": "Honey Pot, The",
     "stock": 17
   },
   {
-    "title": "Trailer Park of Terror",
+    "title": "Whore",
+    "stock": 11
+  },
+  {
+    "title": "99 River Street",
+    "stock": 13
+  },
+  {
+    "title": "One Missed Call (Chakushin ari)",
+    "stock": 6
+  },
+  {
+    "title": "Azumi 2: Death or Love",
     "stock": 18
   },
   {
-    "title": "Fade To Black",
-    "stock": 4
+    "title": "Paradise Canyon",
+    "stock": 16
   },
   {
-    "title": "Geographer Drank His Globe Away",
-    "stock": 18
+    "title": "Paranormal Activity 3",
+    "stock": 6
   },
   {
-    "title": "Mrs. Dalloway",
+    "title": "Cat and Dog",
     "stock": 17
   },
   {
-    "title": "Black Cauldron, The",
+    "title": "Paper Lion",
     "stock": 7
   },
   {
-    "title": "My Friend Irma Goes West",
-    "stock": 1
-  },
-  {
-    "title": "Shouting Fire: Stories from the Edge of Free Speech",
-    "stock": 1
-  },
-  {
-    "title": "Dolly and Her Lover",
-    "stock": 9
-  },
-  {
-    "title": "Blue Angel, The",
+    "title": "CJ7 (Cheung Gong 7 hou)",
     "stock": 7
   },
   {
-    "title": "The Captains",
+    "title": "Mine Games",
     "stock": 20
   },
   {
-    "title": "Stanley Kubrick: A Life in Pictures",
-    "stock": 15
+    "title": "Rebel, The (Le Rebelle)",
+    "stock": 7
   },
   {
-    "title": "Dead Man",
-    "stock": 16
+    "title": "American Hardcore",
+    "stock": 17
   },
   {
-    "title": "Sister Helen ",
-    "stock": 2
+    "title": "Acts of Worship ",
+    "stock": 20
   },
   {
-    "title": "Swan and the Wanderer",
-    "stock": 3
+    "title": "I Got Next",
+    "stock": 8
   },
   {
-    "title": "Hawaii",
-    "stock": 16
+    "title": "Secret Ceremony",
+    "stock": 17
   },
   {
-    "title": "Stalker",
-    "stock": 2
+    "title": "Letter to Momo, A (Momo e no tegami)",
+    "stock": 5
   },
   {
-    "title": "Deja Vu",
+    "title": "Defending Your Life",
+    "stock": 14
+  },
+  {
+    "title": "Mother and Child",
+    "stock": 17
+  },
+  {
+    "title": "The Adventure of Faustus Bidgood",
+    "stock": 8
+  },
+  {
+    "title": "Two Mules for Sister Sara",
     "stock": 19
   },
   {
-    "title": "Anna Karenina",
-    "stock": 20
-  },
-  {
-    "title": "Maze, The",
-    "stock": 11
-  },
-  {
-    "title": "61*",
-    "stock": 17
-  },
-  {
-    "title": "Willard",
-    "stock": 14
-  },
-  {
-    "title": "Good Wife, The",
-    "stock": 4
-  },
-  {
-    "title": "Embodiment of Evil",
-    "stock": 6
-  },
-  {
-    "title": "All at Sea",
-    "stock": 7
-  },
-  {
-    "title": "Let Me In",
+    "title": "Miss Kicki",
     "stock": 9
   },
   {
-    "title": "Suez",
-    "stock": 15
+    "title": "Constantine",
+    "stock": 18
   },
   {
-    "title": "Warriors of Virtue",
-    "stock": 17
+    "title": "It Started with Eve",
+    "stock": 7
   },
   {
-    "title": "The Walking death",
-    "stock": 20
+    "title": "Ghost and Mr. Chicken, The",
+    "stock": 14
   },
   {
-    "title": "Bohemian Life",
+    "title": "Brother Bear",
+    "stock": 9
+  },
+  {
+    "title": "Parting Glances",
+    "stock": 13
+  },
+  {
+    "title": "Blacula",
+    "stock": 9
+  },
+  {
+    "title": "Drug War (Du zhan)",
+    "stock": 14
+  },
+  {
+    "title": "And Now My Love (Toute une vie)",
+    "stock": 13
+  },
+  {
+    "title": "American Hustle",
+    "stock": 13
+  },
+  {
+    "title": "The Duke of Burgundy",
     "stock": 19
   },
   {
-    "title": "the Walking death",
-    "stock": 14
+    "title": "Cabaret",
+    "stock": 8
   },
   {
-    "title": "sint consectetur",
-    "stock": 0
+    "title": "Happy Ending, The",
+    "stock": 7
   },
   {
-    "title": "aliqua in",
-    "stock": 4
+    "title": "A True Mob Story",
+    "stock": 18
   },
   {
-    "title": "pariatur commodo",
-    "stock": 3
-  },
-  {
-    "title": "commodo exercitation",
+    "title": "Exorcist, The",
     "stock": 13
   },
   {
-    "title": "labore dolore",
+    "title": "Rikyu",
+    "stock": 18
+  },
+  {
+    "title": "Mean Season, The",
     "stock": 11
   },
   {
-    "title": "laborum culpa",
+    "title": "London After Midnight",
+    "stock": 20
+  },
+  {
+    "title": "Fame High",
+    "stock": 1
+  },
+  {
+    "title": "Ride",
+    "stock": 6
+  },
+  {
+    "title": "Jonathan Rosenbaum, Present",
     "stock": 3
   },
   {
-    "title": "nulla ad",
+    "title": "À laventure",
+    "stock": 3
+  },
+  {
+    "title": "Long Hello and Short Goodbye",
+    "stock": 7
+  },
+  {
+    "title": "Christmas Evil (a.k.a. You Better Watch Out)",
+    "stock": 19
+  },
+  {
+    "title": "Back from Eternity",
+    "stock": 20
+  },
+  {
+    "title": "Agnes of God",
     "stock": 11
   },
   {
-    "title": "amet amet",
-    "stock": 12
+    "title": "Raisin in the Sun, A",
+    "stock": 2
   },
   {
-    "title": "ea sunt",
-    "stock": 0
+    "title": "Next of Kin",
+    "stock": 16
   },
   {
-    "title": "eiusmod aute",
-    "stock": 5
-  },
-  {
-    "title": "nulla cillum",
-    "stock": 6
-  },
-  {
-    "title": "minim deserunt",
-    "stock": 0
-  },
-  {
-    "title": "nulla ipsum",
+    "title": "Traffic",
     "stock": 13
   },
   {
-    "title": "veniam velit",
-    "stock": 15
-  },
-  {
-    "title": "consequat ea",
-    "stock": 14
-  },
-  {
-    "title": "laborum esse",
-    "stock": 2
-  },
-  {
-    "title": "minim eu",
-    "stock": 15
-  },
-  {
-    "title": "labore magna",
-    "stock": 8
-  },
-  {
-    "title": "commodo dolor",
-    "stock": 2
-  },
-  {
-    "title": "ipsum tempor",
-    "stock": 1
-  },
-  {
-    "title": "duis anim",
-    "stock": 7
-  },
-  {
-    "title": "officia sunt",
-    "stock": 6
-  },
-  {
-    "title": "aliqua minim",
+    "title": "Cross: The Arthur Blessitt Story, The",
     "stock": 4
   },
   {
-    "title": "aliqua ad",
+    "title": "What Did the Lady Forget? (Shukujo wa nani o wasureta ka) ",
+    "stock": 7
+  },
+  {
+    "title": "F/X2 (a.k.a. F/X 2 - The Deadly Art of Illusion)",
+    "stock": 20
+  },
+  {
+    "title": "Relative Strangers",
+    "stock": 6
+  },
+  {
+    "title": "There Was a Father (Chichi ariki)",
+    "stock": 10
+  },
+  {
+    "title": "Stand Up Guys",
+    "stock": 16
+  },
+  {
+    "title": "Big Daddy",
+    "stock": 8
+  },
+  {
+    "title": "Silent One, The",
+    "stock": 3
+  },
+  {
+    "title": "No Way Out",
+    "stock": 12
+  },
+  {
+    "title": "Face of Another, The (Tanin no kao)",
+    "stock": 16
+  },
+  {
+    "title": "Breaking the Rules",
+    "stock": 6
+  },
+  {
+    "title": "4 Months, 3 Weeks and 2 Days (4 luni, 3 saptamâni si 2 zile)",
+    "stock": 1
+  },
+  {
+    "title": "Liberty Heights",
+    "stock": 13
+  },
+  {
+    "title": "Waynes World 2",
     "stock": 2
   },
   {
-    "title": "laboris tempor",
-    "stock": 1
+    "title": "Lorna",
+    "stock": 13
   },
   {
-    "title": "occaecat velit",
-    "stock": 3
+    "title": "Cutter, The",
+    "stock": 20
   },
   {
-    "title": "incididunt ad",
+    "title": "Cannibal Holocaust",
+    "stock": 8
+  },
+  {
+    "title": "Magic in the Water",
+    "stock": 17
+  },
+  {
+    "title": "Breathe In",
+    "stock": 19
+  },
+  {
+    "title": "My Fake  Fiance",
+    "stock": 18
+  },
+  {
+    "title": "Another Mans Poison",
+    "stock": 6
+  },
+  {
+    "title": "Poltergeist II: The Other Side",
+    "stock": 6
+  },
+  {
+    "title": "Man of the West",
     "stock": 14
   },
   {
-    "title": "magna consectetur",
-    "stock": 10
-  },
-  {
-    "title": "aliquip aliqua",
-    "stock": 7
-  },
-  {
-    "title": "sit amet",
-    "stock": 6
-  },
-  {
-    "title": "cillum Lorem",
+    "title": "Father of the Bride",
     "stock": 13
   },
   {
-    "title": "laboris nisi",
-    "stock": 5
-  },
-  {
-    "title": "sint amet",
-    "stock": 1
-  },
-  {
-    "title": "ea qui",
-    "stock": 12
-  },
-  {
-    "title": "dolore nostrud",
-    "stock": 8
-  },
-  {
-    "title": "cupidatat sit",
-    "stock": 10
-  },
-  {
-    "title": "amet laboris",
-    "stock": 13
-  },
-  {
-    "title": "pariatur quis",
-    "stock": 8
-  },
-  {
-    "title": "eiusmod labore",
-    "stock": 13
-  },
-  {
-    "title": "culpa elit",
-    "stock": 13
-  },
-  {
-    "title": "adipisicing duis",
-    "stock": 1
-  },
-  {
-    "title": "est laborum",
-    "stock": 13
-  },
-  {
-    "title": "eu non",
-    "stock": 7
-  },
-  {
-    "title": "in non",
-    "stock": 6
-  },
-  {
-    "title": "excepteur reprehenderit",
-    "stock": 6
-  },
-  {
-    "title": "labore laboris",
-    "stock": 5
-  },
-  {
-    "title": "veniam irure",
-    "stock": 6
-  },
-  {
-    "title": "reprehenderit voluptate",
-    "stock": 12
-  },
-  {
-    "title": "aliquip amet",
-    "stock": 12
-  },
-  {
-    "title": "sint do",
+    "title": "Thieves Like Us",
     "stock": 3
+  },
+  {
+    "title": "Sea Wolf, The",
+    "stock": 11
+  },
+  {
+    "title": "I Dont Want to Sleep Alone",
+    "stock": 16
+  },
+  {
+    "title": "The Mark of Cain",
+    "stock": 13
+  },
+  {
+    "title": "Agora",
+    "stock": 12
+  },
+  {
+    "title": "George Carlin: Its Bad for Ya!",
+    "stock": 4
+  },
+  {
+    "title": "Budd Boetticher: A Man Can Do That",
+    "stock": 6
+  },
+  {
+    "title": "Things I Never Told You",
+    "stock": 17
+  },
+  {
+    "title": "Café de Flore",
+    "stock": 15
+  },
+  {
+    "title": "Riding in Cars with Boys",
+    "stock": 6
+  },
+  {
+    "title": "Ama lur",
+    "stock": 5
+  },
+  {
+    "title": "Smiley Face",
+    "stock": 7
+  },
+  {
+    "title": "At Swords Point",
+    "stock": 3
+  },
+  {
+    "title": "Mitchell",
+    "stock": 8
+  },
+  {
+    "title": "Librarian: Return to King Solomons Mines, The",
+    "stock": 6
+  },
+  {
+    "title": "The Life of Oharu",
+    "stock": 18
+  },
+  {
+    "title": "Meteor",
+    "stock": 8
+  },
+  {
+    "title": "The Closet",
+    "stock": 16
+  },
+  {
+    "title": "Cant Help Singing",
+    "stock": 1
+  },
+  {
+    "title": "American Son",
+    "stock": 10
+  },
+  {
+    "title": "Tremors II: Aftershocks",
+    "stock": 16
+  },
+  {
+    "title": "Jimi Hendrix",
+    "stock": 10
+  },
+  {
+    "title": "Charlie Chan Carries On",
+    "stock": 6
+  },
+  {
+    "title": "Im Gonna Git You Sucka",
+    "stock": 3
+  },
+  {
+    "title": "Way... Way Out",
+    "stock": 1
+  },
+  {
+    "title": "Direct Contact",
+    "stock": 2
+  },
+  {
+    "title": "Mrs. Pollifax-Spy",
+    "stock": 18
+  },
+  {
+    "title": "Totally F***ed Up",
+    "stock": 9
+  },
+  {
+    "title": "History of Violence, A",
+    "stock": 14
+  },
+  {
+    "title": "Girl of the Golden West",
+    "stock": 11
+  },
+  {
+    "title": "Buckskin Frontier",
+    "stock": 18
+  },
+  {
+    "title": "The Witches",
+    "stock": 10
+  },
+  {
+    "title": "Boricuas Bond",
+    "stock": 1
+  },
+  {
+    "title": "Mike Bassett: England Manager",
+    "stock": 2
+  },
+  {
+    "title": "Thing: Terror Takes Shape, The",
+    "stock": 1
+  },
+  {
+    "title": "The Walking dead",
+    "stock": 9
+  },
+  {
+    "title": "Oranges and Sunshine",
+    "stock": 5
+  },
+  {
+    "title": "Jay and Silent Bob Strike Back",
+    "stock": 2
+  },
+  {
+    "title": "Yes: 9012 Live",
+    "stock": 4
+  },
+  {
+    "title": "Theodora Goes Wild",
+    "stock": 11
+  },
+  {
+    "title": "Mermaids",
+    "stock": 19
+  },
+  {
+    "title": "My Darling Clementine",
+    "stock": 13
+  },
+  {
+    "title": "Sergeant Rutledge",
+    "stock": 2
+  },
+  {
+    "title": "Masquerade",
+    "stock": 1
+  },
+  {
+    "title": "Vampire Bat, The",
+    "stock": 8
+  },
+  {
+    "title": "Brother (Hermano)",
+    "stock": 13
+  },
+  {
+    "title": "King Corn",
+    "stock": 2
+  },
+  {
+    "title": "Dogfight",
+    "stock": 9
+  },
+  {
+    "title": "Shes So Lovely",
+    "stock": 3
+  },
+  {
+    "title": "Beyond Borders",
+    "stock": 14
+  },
+  {
+    "title": "Last Horror Movie, The",
+    "stock": 8
+  },
+  {
+    "title": "Crimson Petal and the White, The",
+    "stock": 20
+  },
+  {
+    "title": "My First Mister",
+    "stock": 17
+  },
+  {
+    "title": "Spawn",
+    "stock": 19
+  },
+  {
+    "title": "Summer in Berlin (Sommer vorm Balkon)",
+    "stock": 16
+  },
+  {
+    "title": "Jennifers Body",
+    "stock": 12
+  },
+  {
+    "title": "Alexander Nevsky (Aleksandr Nevskiy)",
+    "stock": 11
+  },
+  {
+    "title": "Zebra Lounge",
+    "stock": 19
+  },
+  {
+    "title": "Arcana",
+    "stock": 10
+  },
+  {
+    "title": "Jonestown: The Life and Death of Peoples Temple",
+    "stock": 19
+  },
+  {
+    "title": "Hangover, The",
+    "stock": 11
+  },
+  {
+    "title": "Prince of the City",
+    "stock": 15
+  },
+  {
+    "title": "Bad Luck (Zezowate szczescie)",
+    "stock": 3
+  },
+  {
+    "title": "Colour of Magic, The (Terry Pratchetts The Colour of Magic)",
+    "stock": 20
+  },
+  {
+    "title": "Godzilla vs. The Sea Monster (Gojira-Ebira-Mosura: Nankai no daiketto)",
+    "stock": 8
+  },
+  {
+    "title": "Dirties, The",
+    "stock": 14
+  },
+  {
+    "title": "Three Crowns of the Sailor (Les trois couronnes du matelot)",
+    "stock": 17
+  },
+  {
+    "title": "WWII IN HD",
+    "stock": 3
+  },
+  {
+    "title": "Rampage",
+    "stock": 8
+  },
+  {
+    "title": "Lentsu",
+    "stock": 10
+  },
+  {
+    "title": "Billy Blazes, Esq.",
+    "stock": 15
+  },
+  {
+    "title": "Blues in the Night",
+    "stock": 1
+  },
+  {
+    "title": "Palestine Is Still the Issue",
+    "stock": 9
+  },
+  {
+    "title": "Aspen",
+    "stock": 16
+  },
+  {
+    "title": "Electrick Children",
+    "stock": 7
+  },
+  {
+    "title": "Great Ziegfeld, The",
+    "stock": 18
+  },
+  {
+    "title": "Mrs. Brown (a.k.a. Her Majesty, Mrs. Brown)",
+    "stock": 20
+  },
+  {
+    "title": "Loves Labours Lost",
+    "stock": 18
+  },
+  {
+    "title": "Choose",
+    "stock": 18
+  },
+  {
+    "title": "Popatopolis",
+    "stock": 4
+  },
+  {
+    "title": "Rope",
+    "stock": 11
+  },
+  {
+    "title": "The Pee-Wee Herman Show on Broadway",
+    "stock": 4
+  },
+  {
+    "title": "To Be Takei",
+    "stock": 16
+  },
+  {
+    "title": "Talent for the Game",
+    "stock": 12
+  },
+  {
+    "title": "Critical Care",
+    "stock": 14
+  },
+  {
+    "title": "Carlitos Way: Rise to Power (Carlitos Way 2: Rise to Power)",
+    "stock": 10
+  },
+  {
+    "title": "Set Me Free (Emporte-moi)",
+    "stock": 2
+  },
+  {
+    "title": "Alila",
+    "stock": 12
+  },
+  {
+    "title": "Day of the Beast, The (Día de la Bestia, El)",
+    "stock": 11
+  },
+  {
+    "title": "Measuring the World (Die Vermessung der Welt)",
+    "stock": 20
+  },
+  {
+    "title": "Secret Agent, The",
+    "stock": 6
+  },
+  {
+    "title": "A Lesson Before Dying",
+    "stock": 18
+  },
+  {
+    "title": "War Is Over, The (Guerre est finie, La)",
+    "stock": 5
+  },
+  {
+    "title": "The Fox & the Child",
+    "stock": 18
+  },
+  {
+    "title": "Devils Trap, The (Dáblova past)",
+    "stock": 1
+  },
+  {
+    "title": "Car 54, Where Are You?",
+    "stock": 14
+  },
+  {
+    "title": "Riptide",
+    "stock": 19
+  },
+  {
+    "title": "Late Phases",
+    "stock": 6
+  },
+  {
+    "title": "Someones Watching Me!",
+    "stock": 18
+  },
+  {
+    "title": "Ali",
+    "stock": 14
+  },
+  {
+    "title": "Le créateur ",
+    "stock": 20
+  },
+  {
+    "title": "Bertsolari",
+    "stock": 13
+  },
+  {
+    "title": "Phantasm II",
+    "stock": 17
+  },
+  {
+    "title": "Like Mike",
+    "stock": 12
+  },
+  {
+    "title": "Proposition, The",
+    "stock": 14
+  },
+  {
+    "title": "Sinivalkoinen valhe",
+    "stock": 12
+  },
+  {
+    "title": "Elusive Summer of 68, The (Varljivo leto 68)",
+    "stock": 4
+  },
+  {
+    "title": "June & Moon",
+    "stock": 8
+  },
+  {
+    "title": "Love Affair",
+    "stock": 17
+  },
+  {
+    "title": "Play it to the Bone",
+    "stock": 8
+  },
+  {
+    "title": "Wyrmwood",
+    "stock": 12
+  },
+  {
+    "title": "Meet the Applegates",
+    "stock": 11
+  },
+  {
+    "title": "City in the Sea",
+    "stock": 2
+  },
+  {
+    "title": "Wu Tang Master",
+    "stock": 14
+  },
+  {
+    "title": "Latter Days",
+    "stock": 16
   }
 ]
