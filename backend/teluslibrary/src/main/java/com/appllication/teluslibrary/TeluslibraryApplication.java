@@ -30,7 +30,7 @@ public class TeluslibraryApplication {
 		return new WebMvcConfigurer() {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
-				registry.addMapping("/**").allowedOrigins("http://localhost:4500").allowedMethods("GET", "POST", "PUT",
+				registry.addMapping("/**").allowedOrigins("*").allowedMethods("GET", "POST", "PUT",
 						"DELETE");
 			}
 		};
