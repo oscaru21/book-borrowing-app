@@ -56,23 +56,10 @@ public class UserService {
 	}
 	
 	private User mapToEntiy(CreateUserDto userDto) {
-		User user = mapper.map(userDto, User.class);
-		return user;
+		return mapper.map(userDto, User.class);
 	}
 	private UserDto mapUserToDto(User user) {
-		UserDto userDto = mapper.map(user, UserDto.class);
-		if(user.getLoans() != null) {
-			userDto.setActiveLoans(getActiveLoans(user.getLoans()));
-		}else {
-			userDto.setActiveLoans(0);
-		}
-		return userDto;
+		return mapper.map(user, UserDto.class);
 	}
 	
-	private Integer getActiveLoans(List<Loan> loans) {
-		return loans.stream()
-				.filter(loan -> !loan.getStatus()
-				.equals(LoanStatus.RETURNED.getValue()))
-				.collect(Collectors.toList()).size();
-	}
 }
