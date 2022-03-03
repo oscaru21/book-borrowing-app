@@ -15,3 +15,8 @@ mvn dependency:resolve
 Test
 https://mkyong.com/maven/how-to-run-unit-test-with-maven/
 ./mvnw test
+
+//Dukir
+sudo docker build .
+sudo docker tag <imageid>
+sudo docker run -d -p80:80 telus/front:latest
